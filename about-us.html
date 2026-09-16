@@ -202,6 +202,7 @@ html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3,html[lang="gu"] .serif{
   padding:12px 4px;font-size:15px;font-weight:500;color:var(--ink);
   border-bottom:1px solid #F3F1FC
 }
+.phone-btn svg, .mobile-menu svg { width: 16px !important; height: 16px !important; max-width: 16px !important; max-height: 16px !important; flex-shrink: 0 !important; display: inline-block !important; }
 
 /* =========================================================
    HERO SECTION
@@ -485,17 +486,22 @@ html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3,html[lang="gu"] .serif{
 }
 .focus-card:hover .focus-thumb img{transform:scale(1.06)}
 .focus-category-icon{
-  position:absolute;bottom:-20px;left:20px;
   width:44px;height:44px;border-radius:50%;
   background:var(--purple);color:#fff;
   display:flex;align-items:center;justify-content:center;
   box-shadow:0 6px 18px rgba(52,37,154,.3);
   border:3px solid #fff;
+  margin-top:-38px;
+  margin-bottom:12px;
+  position:relative;
+  z-index:2;
+  flex-shrink:0;
 }
 .focus-category-icon svg{width:20px;height:20px}
 .focus-body{
-  padding:32px 22px 24px;
+  padding:16px 22px 24px;
   display:flex;flex-direction:column;flex:1;
+  position:relative;
 }
 .focus-body h3{
   font-size:19px;font-weight:600;color:var(--navy);margin-bottom:10px;
@@ -703,6 +709,7 @@ html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3,html[lang="gu"] .serif{
 
 /* Responsive styles */
 @media (max-width:1080px){
+  .topbar{display:none !important}
   .nav,.header-actions .btn-primary{display:none}
   .hamburger{display:flex}
   .about-hero-grid{grid-template-columns:1fr;gap:40px}
@@ -1009,11 +1016,11 @@ html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3,html[lang="gu"] .serif{
         <div class="focus-card reveal">
           <div class="focus-thumb">
             <img src="image/gau_seva.png" alt="Cow & Animal Welfare">
+          </div>
+          <div class="focus-body">
             <div class="focus-category-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-3 0-5 2-5 5s2 7 5 7 5-4 5-7-2-5-5-5z"/></svg>
             </div>
-          </div>
-          <div class="focus-body">
             <h3 data-i18n="focus.c1.t">Cow & Animal Welfare</h3>
             <p data-i18n="focus.c1.d">Rescue, shelter, and care for cows and animals. We provide food, medical care, and a safe home for the voiceless.</p>
             <a href="index.html#svc-gauseva" class="focus-link">
@@ -1025,11 +1032,11 @@ html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3,html[lang="gu"] .serif{
         <div class="focus-card reveal" data-delay="1">
           <div class="focus-thumb">
             <img src="image/8.jpeg" alt="Community Support">
+          </div>
+          <div class="focus-body">
             <div class="focus-category-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
             </div>
-          </div>
-          <div class="focus-body">
             <h3 data-i18n="focus.c2.t">Community Support</h3>
             <p data-i18n="focus.c2.d">Supporting underprivileged families through food, clothing, and essential resources with love and respect.</p>
             <a href="index.html#svc-street" class="focus-link">
@@ -1041,11 +1048,11 @@ html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3,html[lang="gu"] .serif{
         <div class="focus-card reveal" data-delay="2">
           <div class="focus-thumb">
             <img src="image/13.jpeg" alt="Health & Nutrition">
+          </div>
+          <div class="focus-body">
             <div class="focus-category-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
             </div>
-          </div>
-          <div class="focus-body">
             <h3 data-i18n="focus.c3.t">Health & Nutrition</h3>
             <p data-i18n="focus.c3.d">Organizing health camps, medical aid, and nutrition support for healthier and stronger communities.</p>
             <a href="index.html#svc-hospital" class="focus-link">
@@ -1057,11 +1064,11 @@ html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3,html[lang="gu"] .serif{
         <div class="focus-card reveal" data-delay="3">
           <div class="focus-thumb">
             <img src="image/93.jpeg" alt="Education Support">
+          </div>
+          <div class="focus-body">
             <div class="focus-category-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
             </div>
-          </div>
-          <div class="focus-body">
             <h3 data-i18n="focus.c4.t">Education Support</h3>
             <p data-i18n="focus.c4.d">Encouraging education by providing learning materials, fees support, and creating brighter futures for children.</p>
             <a href="index.html#svc-education" class="focus-link">
@@ -1237,11 +1244,8 @@ html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3,html[lang="gu"] .serif{
     </div>
 
     <div class="footer-bottom">
-      <div>&copy; 2026 Shree Vasuki Trust. All Rights Reserved.</div>
-      <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms &amp; Conditions</a>
-      </div>
+      <div>Copyright &copy; 2026, All Rights Reserved.</div>
+      <div>Design By <a href="https://technomantra.in" target="_blank" rel="noopener" style="color:#C4A574;font-weight:600;text-decoration:none;">Techno Mantra India</a></div>
     </div>
   </div>
 </footer>

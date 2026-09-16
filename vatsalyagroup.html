@@ -354,6 +354,7 @@
       background: var(--purple-50);
       color: var(--purple);
     }
+    .phone-btn svg, .mobile-menu svg { width: 16px !important; height: 16px !important; max-width: 16px !important; max-height: 16px !important; flex-shrink: 0 !important; display: inline-block !important; }
 
     /* =========================================================
        HERO SECTION
@@ -377,7 +378,7 @@
     .vatsalya-hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.93) 0%, rgba(255, 255, 255, 0.85) 55%, rgba(255, 255, 255, 0.65) 100%);
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.65) 55%, rgba(255, 255, 255, 0.45) 100%);
       z-index: 2;
     }
     .vatsalya-hero-grid {
@@ -736,6 +737,66 @@
     .step3-col-card.green .step3-footer-val { color: #047857; }
     .step3-col-card.orange .step3-footer-val { color: #b45309; }
     .step3-col-card.blue .step3-footer-val { color: #1d4ed8; }
+
+    @media (max-width: 768px) {
+      .step3-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .step3-col-card {
+        padding: 18px 16px;
+        border-radius: 16px;
+      }
+
+      .step3-pill {
+        padding: 8px 12px;
+        font-size: 14px;
+        margin-bottom: 12px;
+      }
+
+      .step3-icon {
+        width: 36px;
+        height: 36px;
+        margin: 0 auto 12px;
+      }
+
+      .step3-icon svg {
+        width: 30px !important;
+        height: 30px !important;
+      }
+
+      .step3-text {
+        font-size: 13px;
+        line-height: 1.6;
+        text-align: center;
+        margin-bottom: 12px;
+      }
+
+      .step3-bullets {
+        font-size: 12.5px;
+        line-height: 1.65;
+        padding-left: 20px;
+        margin-bottom: 12px;
+      }
+
+      .step3-bullets li {
+        margin-bottom: 6px;
+      }
+
+      .step3-footer-tag {
+        margin-top: 14px;
+        padding-top: 12px;
+      }
+
+      .step3-footer-label {
+        font-size: 12px;
+      }
+
+      .step3-footer-val {
+        font-size: 17px;
+      }
+    }
 
     /* =========================================================
        SECTION 3: SIMPLE EXAMPLE & STEP 4 RENEWAL
@@ -1235,6 +1296,132 @@
       margin-bottom: 10px;
     }
     .commit-desc {
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.55;
+    }
+
+    /* =========================================================
+       SECTION 7: VISION & MISSION + IMPORTANT INFO
+       ========================================================= */
+    .vision-info-sec {
+      background: #f8faff;
+      border-top: 1px solid #edf2f7;
+    }
+    .vision-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .vision-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .vision-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid #e2e8f0;
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .vision-card:hover {
+      border-color: var(--purple-200);
+      transform: translateY(-2px);
+    }
+    .vision-card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .vision-card-head svg {
+      width: 22px;
+      height: 22px;
+      color: var(--purple);
+    }
+    .vision-card p {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.65;
+    }
+    .mission-list {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .mission-list li {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mission-list li::before {
+      content: '•';
+      color: var(--purple);
+      font-size: 18px;
+    }
+
+    /* Important Information Column */
+    .info-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid #e2e8f0;
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+    }
+    .info-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+    .info-head svg {
+      width: 22px;
+      height: 22px;
+      color: var(--blue-accent);
+    }
+    .info-points-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .info-point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.55;
+    }
+    .info-point-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: var(--blue-accent);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* =========================================================
+       SECTION 8: JOIN VATSALYA GROUP CTA BANNER
+       ========================================================= */
     .vatsalya-cta-sec {
       background: #ffffff;
       padding: 60px 0;
@@ -1572,10 +1759,29 @@
       color: #0f172a;
     }
 
+    /* Reference-style vision, mission and information panels */
+    .vision-info-sec { background:#f7f9ff; border-top:1px solid #edf2f7; }
+    .vision-info-grid { grid-template-columns:1.05fr 1fr; gap:10px; }
+    .vision-column { display:grid; grid-template-columns:1fr 1fr; gap:8px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:14px; }
+    .vision-panel-title { grid-column:1/-1; display:flex; align-items:center; gap:10px; color:#17106d; font-size:20px; font-weight:700; }
+    .vision-panel-title svg { width:30px; height:30px; color:#30269a; }
+    .vision-card, .info-card { border-radius:10px; padding:14px; box-shadow:none; }
+    .vision-card-head, .info-head { font-size:15px; margin-bottom:10px; color:#17106d; }
+    .vision-card-head svg, .info-head svg { width:26px; height:26px; color:#30269a; }
+    .vision-card p, .info-point-item { font-size:12px; line-height:1.5; }
+    .mission-list { gap:6px; }
+    .mission-list li { font-size:12px; }
+    .info-card { background:#fff; border:1px solid #e2e8f0; }
+    .info-points-list { gap:10px; }
+    .info-point-num { width:34px; height:34px; background:#f0efff; color:#30269a; font-size:17px; flex-shrink:0; }
+
     /* =========================================================
        RESPONSIVE BREAKPOINTS
        ========================================================= */
     @media (max-width: 1024px) {
+      .topbar {
+        display: none !important;
+      }
       .steps-grid-3 {
         grid-template-columns: 1fr;
       }
@@ -1603,6 +1809,40 @@
     }
 
     @media (max-width: 768px) {
+      .header {
+        border-bottom: 1px solid #e2e8f0 !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.06) !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+      }
+      .header-inner {
+        padding: 10px 16px !important;
+        height: 64px !important;
+      }
+      .logo img {
+        height: 38px !important;
+        width: auto !important;
+      }
+      .vatsalya-hero {
+        padding: 36px 0 44px !important;
+      }
+      .vatsalya-hero-overlay {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.55) 100%) !important;
+      }
+      .vatsalya-hero-bg {
+        object-fit: cover !important;
+        object-position: center !important;
+        opacity: 0.9 !important;
+      }
+      .hero-title {
+        font-size: 32px !important;
+      }
+      .hero-tagline {
+        font-size: 17px !important;
+      }
+      .hero-desc {
+        font-size: 13.5px !important;
+        line-height: 1.6 !important;
+      }
       .nav {
         display: none;
       }
@@ -1613,10 +1853,84 @@
         grid-template-columns: 1fr;
       }
       .vatsalya-cta-card {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        padding: 24px 16px !important;
+      }
+      .cta-title {
+        font-size: 26px !important;
+        line-height: 1.25 !important;
+      }
+      .cta-subtitle {
+        font-size: 15px !important;
+        line-height: 1.35 !important;
+      }
+      .cta-desc {
+        font-size: 13px !important;
+      }
+      .cta-badges-row {
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        width: 100% !important;
+      }
+      .cta-badge {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        min-height: auto !important;
+        padding: 10px 14px !important;
+        justify-content: flex-start !important;
+        font-size: 12px !important;
+        border-radius: 10px !important;
+      }
+      .cta-left-content > .open-join-modal {
+        width: 100% !important;
+        display: block !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+      }
+      .resp-bene-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
       }
       .resp-inner-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+      .benefits-stack {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+      .benefit-item {
+        border-left: 4px solid !important;
+        border-top: 0 !important;
+        border-radius: 10px !important;
+        padding: 12px 14px !important;
+      }
+      .benefit-item.green { border-left-color: var(--green-accent) !important; }
+      .benefit-item.gold { border-left-color: var(--orange-accent) !important; }
+      .benefit-item.indigo { border-left-color: var(--purple) !important; }
+      .benefit-item.teal { border-left-color: var(--teal-accent) !important; }
+      .benefit-item.blue { border-left-color: var(--blue-accent) !important; }
+      .benefit-head {
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        gap: 8px !important;
+        font-size: 13.5px !important;
+      }
+      .benefit-desc {
+        text-align: left !important;
+        font-size: 12px !important;
+      }
+      .resp-card-box, .benefits-card-box {
+        padding: 18px 16px !important;
+        border-radius: 14px !important;
+      }
+      .vision-info-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .vision-column {
+        grid-template-columns: 1fr !important;
       }
       .cycle-timeline-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1628,24 +1942,6 @@
         grid-template-columns: 1fr;
       }
     }
-    /* Reference-style vision, mission and information panels */
-    .vision-info-sec { background:#f7f9ff; border-top:1px solid #edf2f7; }
-    .vision-info-grid { grid-template-columns:1.05fr 1fr; gap:10px; }
-    .vision-main-card, .info-main-card { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:14px; box-shadow:0 2px 8px rgba(15,23,42,.04); }
-    .vision-info-header { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
-    .vision-info-header-icon { color:#30269a; }
-    .vision-info-header-icon svg { width:30px; height:30px; }
-    .vision-info-header-title { color:#17106d; font-size:20px; font-weight:700; }
-    .vision-inner-grid { grid-template-columns:1fr 1fr; gap:8px; }
-    .vision-sub-card { border:1px solid #e2e8f0; border-radius:10px; padding:14px; }
-    .vision-sub-head { color:#30269a; font-size:15px; font-weight:700; }
-    .vision-sub-head svg { width:26px; height:26px; }
-    .vision-sub-text { font-size:12px; line-height:1.5; color:#475569; }
-    .mission-bullet-list { gap:6px; margin-top:10px; }
-    .mission-bullet-list li { font-size:12px; color:#334155; }
-    .info-points-list { gap:10px; }
-    .info-point-item { gap:10px; font-size:12px; line-height:1.45; }
-    .info-point-num { width:34px; height:34px; background:#f0efff; color:#30269a; font-size:17px; flex-shrink:0; }
   </style>
 </head>
 <body>
@@ -2207,54 +2503,42 @@
   <section class="section vision-info-sec">
     <div class="container">
       <div class="vision-info-grid">
-        <!-- Vision & Mission Main Card -->
-        <div class="vision-main-card reveal">
-          <div class="vision-info-header">
-            <div class="vision-info-header-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><circle cx="16" cy="16" r="4"/><line x1="8.5" y1="8.5" x2="15.5" y2="15.5"/></svg>
+        <!-- Vision & Mission -->
+        <div class="vision-column">
+          <div class="vision-panel-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="4"/><circle cx="16" cy="16" r="4"/><line x1="8.5" y1="8.5" x2="15.5" y2="15.5"/></svg><span>Vision and Mission</span></div>
+          <div class="vision-card reveal">
+            <div class="vision-card-head">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <span data-i18n="vis.title">Our Vision</span>
             </div>
-            <h2 class="vision-info-header-title">Vision and Mission</h2>
+            <p data-i18n="vis.desc">
+              To build a compassionate community where people do not remain alone during difficult times and where every member's contribution creates a positive impact beyond their own family.
+            </p>
           </div>
 
-          <div class="vision-inner-grid">
-            <!-- Our Vision -->
-            <div class="vision-sub-card">
-              <div class="vision-sub-head">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                <span data-i18n="vis.title">Our Vision</span>
-              </div>
-              <div class="vision-sub-text" data-i18n="vis.desc">
-                To build a compassionate community where people do not remain alone during difficult times and where every member's contribution creates a positive impact beyond their own family.
-              </div>
+          <div class="vision-card reveal">
+            <div class="vision-card-head">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M22 12h-4M6 12H2M12 6V2M12 22v-4"/></svg>
+              <span data-i18n="mis.title">Our Mission</span>
             </div>
-
-            <!-- Our Mission -->
-            <div class="vision-sub-card">
-              <div class="vision-sub-head">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                <span data-i18n="mis.title">Our Mission</span>
-              </div>
-              <div class="vision-sub-text" data-i18n="mis.desc">
-                To connect people through a transparent community support system that combines:
-              </div>
-              <ul class="mission-bullet-list">
-                <li data-i18n="mis.m1">Family Assistance</li>
-                <li data-i18n="mis.m2">Social Responsibility</li>
-                <li data-i18n="mis.m3">Charitable Seva</li>
-                <li data-i18n="mis.m4">Community Participation</li>
-                <li data-i18n="mis.m5">Long-Term Support</li>
-              </ul>
-            </div>
+            <p data-i18n="mis.desc">
+              To connect people through a transparent community support system that combines:
+            </p>
+            <ul class="mission-list">
+              <li data-i18n="mis.m1">Family Assistance</li>
+              <li data-i18n="mis.m2">Social Responsibility</li>
+              <li data-i18n="mis.m3">Charitable Seva</li>
+              <li data-i18n="mis.m4">Community Participation</li>
+              <li data-i18n="mis.m5">Long-Term Support</li>
+            </ul>
           </div>
         </div>
 
-        <!-- Important Information Main Card -->
-        <div class="info-main-card reveal">
-          <div class="vision-info-header">
-            <div class="vision-info-header-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            </div>
-            <h2 class="vision-info-header-title" data-i18n="info.title">Important Information</h2>
+        <!-- Important Information -->
+        <div class="info-card reveal">
+          <div class="info-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <span data-i18n="info.title">Important Information</span>
           </div>
 
           <div class="info-points-list">
@@ -2459,8 +2743,8 @@
       </div>
 
       <div class="footer-bottom">
-        <span>Vatsalya Group &mdash; Serving Humanity Through Collective Support</span>
-        <span style="font-family:'Caveat', cursive; font-size:17px; color:#c4b5fd;">Together for a Kinder, Brighter Tomorrow.</span>
+        <span>Copyright &copy; 2026, All Rights Reserved.</span>
+        <span>Design By <a href="https://technomantra.in" target="_blank" rel="noopener" style="color:#C4A574;font-weight:600;text-decoration:none;">Techno Mantra India</a></span>
       </div>
     </div>
   </footer>

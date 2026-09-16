@@ -5,14 +5,18 @@
 - Workspace: shreevasukicharitabletrust
 - Technology: HTML/CSS/JavaScript
 - Active file at refresh: None
-- Local code graph: 12 files · 0 edges · 0 matched flows
-- Refreshed: 2026-09-07T09:18:09.064Z
+- Local code graph: 14 files · 2 edges · 0 matched flows
+- Refreshed: 2026-09-09T04:04:27.735Z
 
 ## Framework Intelligence (V4.7.8)
 - Profiles: html-static
 
 ### Entry / bootstrap candidates
+- server.js
 - index.html
+
+### Node routes
+- server.js
 
 ## Recently edited files
 - None recorded yet
@@ -48,6 +52,8 @@
 - contact.html
 - gallery.html
 - index.backup-before-hero.html
+- send-mail.php
+- server.js
 - trustee.html
 - vatsalya-group.html
 - vatsalya.html

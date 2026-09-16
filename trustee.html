@@ -189,7 +189,7 @@ html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3,html[lang="gu"] .serif{
   padding:9px 18px;font-size:13px;font-weight:600;color:var(--ink);
   transition:border-color .25s,color .25s,transform .25s
 }
-.phone-btn svg{width:15px;height:15px;color:var(--purple)}
+.phone-btn svg, .mobile-menu svg { width: 16px !important; height: 16px !important; max-width: 16px !important; max-height: 16px !important; flex-shrink: 0 !important; display: inline-block !important; }
 .phone-btn:hover{border-color:var(--purple);color:var(--purple);transform:translateY(-1px)}
 
 .hamburger{display:none;flex-direction:column;gap:5px;padding:8px;z-index:130}
@@ -635,6 +635,7 @@ html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3,html[lang="gu"] .serif{
 
 /* Responsive styles */
 @media (max-width:1080px){
+  .topbar{display:none !important}
   .nav,.header-actions .phone-btn,.header-actions .btn-primary{display:none}
   .hamburger{display:flex}
   .topbar-left{gap:14px}
@@ -918,14 +919,8 @@ html[lang="gu"] h1,html[lang="gu"] h2,html[lang="gu"] h3,html[lang="gu"] .serif{
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Shree Vasuki Charitable Trust. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
-        <span>|</span>
-        <a href="#" data-i18n="footer.terms">Terms & Conditions</a>
-        <span>|</span>
-        <span>Designed with ❤️ for a better tomorrow</span>
-      </div>
+      <p>Copyright &copy; 2026, All Rights Reserved.</p>
+      <p>Design By <a href="https://technomantra.in" target="_blank" rel="noopener" style="color:#C4A574;font-weight:600;text-decoration:none;">Techno Mantra India</a></p>
       <a href="#header" class="scroll-top-btn" aria-label="Scroll to top">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
       </a>

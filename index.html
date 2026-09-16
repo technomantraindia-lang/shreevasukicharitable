@@ -33,7 +33,7 @@
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-html,body{overflow-x:clip}
+html,body{max-width: 100% !important; overflow-x: hidden !important;}
 body{
   font-family:'DM Sans',sans-serif;
   color:var(--ink);
@@ -225,6 +225,14 @@ html[lang="gu"] .btn{font-family:'Noto Sans Gujarati','DM Sans',sans-serif}
 .mm-sub.open{max-height:320px}
 .mm-sub a{display:block;padding:9px 4px 9px 18px;font-size:13.5px;color:var(--muted)}
 .mm-actions{margin-top:22px;display:flex;flex-direction:column;gap:12px}
+.phone-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:14px;font-weight:600;color:var(--purple);
+  padding:11px 20px;border:1.5px solid var(--purple);
+  border-radius:999px;text-decoration:none;transition:background .25s,color .25s;
+}
+.phone-btn svg, .mobile-menu svg { width: 16px !important; height: 16px !important; max-width: 16px !important; max-height: 16px !important; flex-shrink: 0 !important; display: inline-block !important; }
+.phone-btn:hover{background:var(--purple);color:#fff;}
 .menu-backdrop{
   position:fixed;inset:0;z-index:110;background:rgba(18,20,61,.45);
   opacity:0;visibility:hidden;transition:opacity .35s
@@ -733,6 +741,7 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--purple-2);outline
   .news-card.featured{grid-column:1 / -1}
 }
 @media (max-width:1080px){
+  .topbar { display: none !important; }
   .nav,.header-actions .btn-primary{display:none}
   .hamburger{display:flex}
   .stats-card{flex-wrap:wrap;row-gap:26px}
@@ -1325,17 +1334,11 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--purple-2);outline
 
 <section class="donate" id="donate">
   <img class="donate-bg" src="image/8.jpeg" alt="" aria-hidden="true">
-  <div class="container donate-inner">
+  <div class="container donate-inner" style="display:flex;flex-direction:column;align-items:center;text-align:center;max-width:800px;margin-inline:auto;">
     <div class="reveal">
       <span class="eyebrow" style="color:#E4DCFF" data-i18n="don.eye">Give with intention</span>
       <h2 data-i18n="don.title">Be the reason someone smiles today</h2>
-      <p data-i18n="don.p">Your support brings food to the hungry, care to the elderly, education to a child, and hope to many lives. Donate via WhatsApp — Google Pay, PhonePe or Paytm.</p>
-    </div>
-    <div class="amount-grid reveal" data-delay="1">
-      <a class="amount" data-amt="501" href="#"><b>₹501</b><span data-i18n="don.a1">Sponsor a meal</span></a>
-      <a class="amount" data-amt="1100" href="#"><b>₹1,100</b><span data-i18n="don.a2">Care for an elder</span></a>
-      <a class="amount" data-amt="2100" href="#"><b>₹2,100</b><span data-i18n="don.a3">A week of seva</span></a>
-      <a class="amount" data-amt="5100" href="#"><b>₹5,100</b><span data-i18n="don.a4">Become a guardian</span></a>
+      <p style="max-width:680px;margin-inline:auto;" data-i18n="don.p">Your support brings food to the hungry, care to the elderly, education to a child, and hope to many lives. Donate via WhatsApp — Google Pay, PhonePe or Paytm.</p>
     </div>
   </div>
 </section>
@@ -1351,10 +1354,6 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--purple-2);outline
       <a href="https://wa.me/919974063064" class="btn btn-white" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         <span data-i18n="cta.donate">Donate Now</span>
-      </a>
-      <a href="contact-us.html" class="btn btn-ghost-white">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <span data-i18n="cta.vol">Become a Volunteer</span>
       </a>
     </div>
   </div>
@@ -1424,8 +1423,8 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--purple-2);outline
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Shree Vasuki Charitable Trust. All Rights Reserved.</span>
-      <span>Designed with <span class="heart">♥</span> for Humanity</span>
+      <span>Copyright &copy; 2026, All Rights Reserved.</span>
+      <span>Design By <a href="https://technomantra.in" target="_blank" rel="noopener" style="color:#C4A574;font-weight:600;text-decoration:none;">Techno Mantra India</a></span>
     </div>
   </div>
 </footer>

@@ -2,18 +2,27 @@
 
 > Structural local index. Read current source before editing. Secrets are intentionally excluded.
 
-- Indexed source files: 12
-- Structural edges: 0
+- Indexed source files: 14
+- Structural edges: 2
 - Matched end-to-end flows: 0
-- Updated: 2026-09-07T09:18:09.062Z
+- Updated: 2026-09-09T04:04:27.733Z
+
+## Routes
+- ROUTE POST /api/contact -> handler @ server.js
+
+## Database references
+- DB server.js -> Google
+
+## Safe configuration variable names
+- CONFIG server.js: PORT
 
 ## UI/style selectors
 - UI index.html: #preloader, #pageProgress, #header, #hamburger, #menuBackdrop, #mobileMenu, #home, #heroProgressLine, #heroSlider, #heroCopy, #heroTagText, #heroLine1, #heroLine2, #heroSub
 - UI gallery-page.html: #header, #hamburger, #menuBackdrop, #mobileMenu, #filterTabs, #searchInput, #photo-grid, #visibleCount, #galleryGrid, #lightboxModal, #lightboxClose, #lightboxPrev, #lightboxNext, #lightboxImg
 - UI trustee-page.html: #preloader, #header, #hamburger, #menuBackdrop, #mobileMenu, #donateModal, #closeModal, #modalTitle, .pre-bar, .pre-word, .topbar, .container, .topbar-info, .topbar-right
 - UI about-us.html: #preloader, #header, #hamburger, #menuBackdrop, #mobileMenu, #story, #momentsTrack, #momentsNext, #donateModal, #modalClose, .pre-bar, .pre-word, .topbar, .container
-- UI contact-us.html: #header, #hamburger, #menuBackdrop, #mobileMenu, .topbar, .container, .topbar-info, .topbar-right, .topbar-tag, .header, .header-inner, .logo, .nav, .active
-- UI contact.html: #header, #hamburger, #menuBackdrop, #mobileMenu, .topbar, .container, .topbar-info, .topbar-right, .topbar-tag, .header, .header-inner, .logo, .nav, .active
+- UI contact-us.html: #header, #hamburger, #menuBackdrop, #mobileMenu, #contactForm, #userName, #userEmail, #userPhone, #userSubject, #userMessage, #submitBtn, #formAlert, .topbar, .container
+- UI contact.html: #header, #hamburger, #menuBackdrop, #mobileMenu, #contactForm, #userName, #userEmail, #userPhone, #userSubject, #userMessage, #submitBtn, #formAlert, .topbar, .container
 - UI gallery.html: #header, #hamburger, #menuBackdrop, #mobileMenu, #filterTabs, #searchInput, #photo-grid, #visibleCount, #galleryGrid, #lightboxModal, #lightboxClose, #lightboxPrev, #lightboxNext, #lightboxImg
 - UI index.backup-before-hero.html: #header, #hamburger, #menuBackdrop, #mobileMenu, #home, #swooshGrad, #services, #svc-oldage, #svc-gauseva, #svc-hospital, #svc-street, #svc-education, #about, #news
 - UI trustee.html: #preloader, #header, #hamburger, #menuBackdrop, #mobileMenu, #donateModal, #closeModal, #modalTitle, .pre-bar, .pre-word, .topbar, .container, .topbar-info, .topbar-right
