@@ -56,6 +56,8 @@
     .nav a:hover, .nav a.active { color: var(--purple); font-weight: 600; }
     .nav a.active::after { content: ''; position: absolute; bottom: -6px; left: 0; right: 0; height: 2px; background: var(--purple); border-radius: 2px; }
     .header-actions { display: flex; align-items: center; gap: 16px; }
+    .header-donate-btn { padding: 9px 20px; font-size: 13.5px; background: var(--purple); color: #fff; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; transition: background .2s; }
+    .header-donate-btn:hover { background: var(--purple-hover); }
     .lang-switch { display: flex; background: #F1F5F9; border-radius: 999px; padding: 3px; border: 1px solid var(--border); }
     .lang-switch button { border: 0; background: transparent; padding: 5px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; transition: all .2s; }
     .lang-switch button.active { background: var(--purple); color: #fff; }
@@ -131,7 +133,7 @@
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; text-align: center; color: rgba(255,255,255,0.5); font-size: 13px; }
 
     @media (max-width: 768px) {
-      .nav { display: none; }
+      .nav, .header-donate-btn { display: none; }
       .hamburger { display: flex; }
       .topbar-info { gap: 12px; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
@@ -187,6 +189,7 @@
           <button type="button" class="active" data-lang="en">EN</button>
           <button type="button" data-lang="gu">ગુ</button>
         </div>
+        <a href="donate.html" class="header-donate-btn" data-i18n="cta.donate">Donate Now</a>
         <button class="hamburger" id="hamburger" type="button" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
