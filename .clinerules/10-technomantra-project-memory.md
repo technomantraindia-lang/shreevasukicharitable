@@ -5,8 +5,8 @@
 - Workspace: shreevasukicharitabletrust
 - Technology: HTML/CSS/JavaScript
 - Active file at refresh: None
-- Local code graph: 14 files · 2 edges · 0 matched flows
-- Refreshed: 2026-09-09T04:04:27.735Z
+- Local code graph: 15 files · 2 edges · 0 matched flows
+- Refreshed: 2026-09-17T05:58:15.575Z
 
 ## Framework Intelligence (V4.7.8)
 - Profiles: html-static
@@ -50,6 +50,7 @@
 - about-us.html
 - contact-us.html
 - contact.html
+- functions.php
 - gallery.html
 - index.backup-before-hero.html
 - send-mail.php

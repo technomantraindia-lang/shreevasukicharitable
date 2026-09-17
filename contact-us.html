@@ -182,26 +182,141 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{
-  position:fixed;inset:0 0 0 auto;width:min(340px,88vw);z-index:120;
-  background:#fff;box-shadow:-24px 0 60px rgba(22,22,79,.18);
-  padding:96px 28px 32px;
-  transform:translateX(105%);transition:transform .4s var(--ease);
-  display:flex;flex-direction:column;gap:4px;overflow-y:auto
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(340px, 88vw);
+  z-index: 1200;
+  background: #ffffff;
+  box-shadow: -20px 0 50px rgba(18, 20, 61, 0.25);
+  padding: 24px 24px 32px;
+  transform: translateX(105%);
+  transition: transform 0.38s cubic-bezier(0.22, 0.61, 0.36, 1);
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: auto;
 }
-.mobile-menu.open{transform:none}
-.mobile-menu > nav{display:flex;flex-direction:column}
-.mobile-menu a.mlink{
-  padding:12px 4px;font-size:15px;font-weight:500;color:var(--ink);
-  border-bottom:1px solid #F3F1FC
+
+.mobile-menu.open {
+  transform: translateX(0) !important;
 }
-.mm-actions{margin-top:22px;display:flex;flex-direction:column;gap:12px}
-.phone-btn svg, .mobile-menu svg { width: 16px !important; height: 16px !important; max-width: 16px !important; max-height: 16px !important; flex-shrink: 0 !important; display: inline-block !important; }
-.menu-backdrop{
-  position:fixed;inset:0;z-index:110;background:rgba(18,20,61,.45);
-  opacity:0;visibility:hidden;transition:opacity .35s
+
+.mobile-menu-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding-bottom: 16px !important;
+  margin-bottom: 12px !important;
+  border-bottom: 1px solid #ECEAF8 !important;
 }
-.menu-backdrop.show{opacity:1;visibility:visible}
+
+.mobile-menu-header img {
+  height: 38px;
+  width: auto;
+}
+
+.mobile-menu-close {
+  font-size: 22px;
+  color: var(--navy);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  line-height: 1;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.mobile-menu-close:hover {
+  background: #F3F1FC;
+}
+
+.mobile-menu nav {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.mobile-menu a.mlink {
+  display: block !important;
+  width: 100% !important;
+  padding: 13px 6px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  border-bottom: 1px solid #F3F1FC !important;
+  text-decoration: none !important;
+  transition: color 0.2s, padding-left 0.2s !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+}
+
+.mobile-menu a.mlink:hover,
+.mobile-menu a.mlink.active {
+  color: var(--purple) !important;
+  padding-left: 10px !important;
+}
+
+.mm-actions {
+  margin-top: 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.phone-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--purple) !important;
+  padding: 11px 20px !important;
+  border: 1.5px solid var(--purple) !important;
+  border-radius: 999px !important;
+  text-decoration: none !important;
+  transition: background .25s, color .25s !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.phone-btn svg,
+.mobile-menu svg {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+}
+
+.phone-btn:hover {
+  background: var(--purple) !important;
+  color: #fff !important;
+}
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(18, 20, 61, 0.45);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s, visibility 0.35s;
+}
+
+.menu-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
 .nav-drop{position:relative}
 .nav-drop .chev{width:11px;height:11px;transition:transform .25s}
 .nav-drop:hover .chev{transform:rotate(180deg)}
@@ -353,18 +468,31 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
 .work-img-card img{width:100%;height:100%;object-fit:cover}
 
 /* FOOTER */
-.footer{background:var(--navy);color:#fff;padding:80px 0 30px}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.2fr;gap:36px;margin-bottom:60px}
-.footer-brand img{height:54px;width:auto;margin-bottom:18px}
-.footer-brand p{font-size:14px;color:rgba(255,255,255,.75);line-height:1.65;margin-bottom:24px}
-.footer-col h4{font-size:17px;font-weight:600;color:#fff;margin-bottom:22px;font-family:'Cormorant Garamond',serif}
-.footer-col ul{display:flex;flex-direction:column;gap:10px}
-.footer-col a{font-size:14px;color:rgba(255,255,255,.75);transition:color .25s}
-.footer-col a:hover{color:#fff}
+.footer{background:var(--navy);color:#fff;padding:68px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1.1fr 1.3fr 1.5fr;gap:40px;padding-bottom:52px}
+.footer-brand img{height:58px;width:auto;margin-bottom:18px}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.68);line-height:1.75;max-width:270px}
+.footer-social{display:flex;gap:10px;margin-top:20px}
+.footer-social a{
+  width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.22);
+  display:inline-flex;align-items:center;justify-content:center;transition:.3s;color:#fff;text-decoration:none
+}
+.footer-social a:hover{background:var(--purple-2);border-color:var(--purple-2);transform:translateY(-3px)}
+.footer-social svg{width:15px;height:15px}
+.footer h4{font-family:'DM Sans',sans-serif;font-size:14.5px;font-weight:600;margin-bottom:20px;padding-bottom:12px;position:relative;color:#fff}
+html[lang="gu"] .footer h4{font-family:'Noto Sans Gujarati',sans-serif}
+.footer h4::after{content:"";position:absolute;left:0;bottom:0;width:34px;height:2.5px;border-radius:3px;background:var(--purple-2)}
+.footer-links{list-style:none !important;padding:0 !important;margin:0 !important;display:flex !important;flex-direction:column !important;gap:11px !important}
+.footer-links li{margin:0 !important;padding:0 !important;display:block !important}
+.footer-links a{font-size:13.5px !important;color:rgba(255,255,255,.72) !important;transition:color .25s,padding-left .25s !important;text-decoration:none !important;display:inline-block !important}
+.footer-links a:hover{color:#fff !important;padding-left:6px !important}
+.footer-contact{list-style:none;padding:0;margin:0}
+.footer-contact li{display:flex;gap:12px;margin-bottom:15px;font-size:13px;color:rgba(255,255,255,.68);line-height:1.65}
+.footer-contact svg{width:16px;height:16px;flex:none;margin-top:3px;color:#A79DF0}
 .footer-bottom{
-  padding-top:30px;border-top:1px solid rgba(255,255,255,.1);
-  display:flex;align-items:center;justify-content:space-between;
-  font-size:13px;color:rgba(255,255,255,.6)
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-size:12.5px;color:rgba(255,255,255,.6)
 }
 
 @media(max-width:1080px){
@@ -373,7 +501,7 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
   .hamburger{display:flex}
   .contact-hero-grid,.main-contact-grid,.work-grid{grid-template-columns:1fr}
   .info-cards-box{grid-template-columns:repeat(2,1fr)}
-  .footer-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
 }
 @media(max-width:640px){
   .header-inner{padding-inline:18px;height:70px}
@@ -381,6 +509,8 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
   .info-cards-box{grid-template-columns:1fr}
   .work-gallery-row{grid-template-columns:repeat(2,1fr)}
   .form-grid-2{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;text-align:center;gap:8px}
 }
 </style>
 </head>
@@ -390,17 +520,17 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
 <div class="topbar">
   <div class="container">
     <div class="topbar-info">
-      <a href="tel:+919876543210" aria-label="Helpline number">
+      <a href="tel:+919974063064" aria-label="Helpline number">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span data-i18n="top.phone">+91 98765 43210</span>
+        <span data-i18n="top.phone">+91 99740 63064</span>
       </a>
-      <a href="mailto:info@shreevasuki.org" aria-label="Email address">
+      <a href="mailto:info@vasukicharitabletrust.org" aria-label="Email address">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span>info@shreevasuki.org</span>
+        <span>info@vasukicharitabletrust.org</span>
       </a>
       <span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span data-i18n="top.loc">Rajkot, Gujarat, India</span>
+        <span data-i18n="top.loc">Ahmedabad, Gujarat, India</span>
       </span>
     </div>
     <div class="topbar-right">
@@ -441,20 +571,24 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
   <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <img src="vasuk logo.png" alt="Shree Vasuki Trust Logo">
+      <button type="button" class="mobile-menu-close" id="mobileMenuCloseBtn" aria-label="Close menu">✕</button>
+    </div>
     <nav>
-      <a class="mlink" href="index.html">Home</a>
-      <a class="mlink" href="about-us.html">About Us</a>
-      <a class="mlink" href="vatsalya-group.html">Vatsalya Group</a>
-      <a class="mlink" href="gallery.html">Gallery</a>
-      <a class="mlink" href="trustee.html">Trustee</a>
-      <a class="mlink" href="contact-us.html" style="color:var(--purple);font-weight:700">Contact</a>
+      <a class="mlink" href="index.html" data-i18n="nav.home">Home</a>
+      <a class="mlink" href="about-us.html" data-i18n="nav.about">About Us</a>
+      <a class="mlink" href="vatsalya-group.html" data-i18n="nav.vatsalya">Vatsalya Group</a>
+      <a class="mlink" href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a class="mlink" href="trustee.html" data-i18n="nav.trustee">Trustee</a>
+      <a class="mlink active" href="contact-us.html" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="mm-actions">
-      <a class="phone-btn" href="tel:+919876543210" style="justify-content:center">
+      <a class="phone-btn" href="tel:+919974063064">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span>+91 98765 43210</span>
+        <span data-i18n="top.phone">+91 99740 63064</span>
       </a>
-      <a href="index.html#donate" class="btn btn-primary">Donate Now</a>
+      <a href="index.html#donate" class="btn btn-primary" style="justify-content:center;" data-i18n="cta.donate">Donate Now</a>
     </div>
   </div>
 
@@ -490,7 +624,7 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
           </div>
           <div class="info-card-text">
             <strong>Call Us</strong>
-            <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+            <p><a href="tel:+919974063064">+91 99740 63064</a> / <a href="tel:+919558646564">+91 95586 46564</a></p>
             <p>Mon – Sat: 9AM – 6PM</p>
           </div>
         </div>
@@ -502,7 +636,7 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
           </div>
           <div class="info-card-text">
             <strong>Email Us</strong>
-            <p><a href="mailto:info@shreevasukitrust.org">info@shreevasukitrust.org</a></p>
+            <p><a href="mailto:info@vasukicharitabletrust.org">info@vasukicharitabletrust.org</a></p>
             <p>We reply within 24 hrs</p>
           </div>
         </div>
@@ -514,7 +648,7 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
           </div>
           <div class="info-card-text">
             <strong>Visit Us</strong>
-            <p>123, Vasuki Trust Road,<br>Varanasi, Uttar Pradesh – 221001</p>
+            <p>38 – Somnathnagar Society, Vijaynagar Road, Naranpura, Ahmedabad – 380013</p>
           </div>
         </div>
 
@@ -564,7 +698,7 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
           <div class="form-grid-2">
             <div class="field-group">
               <label>Phone Number</label>
-              <input type="tel" id="userPhone" name="phone" placeholder="+91 98765 43210">
+              <input type="tel" id="userPhone" name="phone" placeholder="+91 99740 63064">
             </div>
             <div class="field-group">
               <label>Subject *</label>
@@ -673,97 +807,89 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div class="container">
       <div class="footer-grid">
-        
         <div class="footer-brand">
-          <img src="vasuk logo.png" alt="Shree Vasuki Trust Logo">
-          <p>Dedicated to the welfare of people and animals, working together to build a compassionate and better tomorrow.</p>
-          <div class="social-icons-row">
-            <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-            <a href="#" aria-label="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg></a>
-            <a href="#" aria-label="WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+          <img src="vasuk-logo-light.png" alt="Shree Vasuki Charitable Trust">
+          <p data-i18n="foot.about">Serving humanity through Old Age Care, Gau Seva, Food Seva and Education Support. Registered charitable trust, Ahmedabad.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#16164F"/></svg></a>
+            <a href="https://wa.me/919974063064" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 11.4A8.4 8.4 0 0 1 7.2 18.5L4 20l1.6-3.1A8.4 8.4 0 1 1 20 11.4zM8.4 7.6c.2-.4.3-.4.6-.4h.5c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.5l-.4.5c-.1.1-.1.3 0 .4.3.5.8 1.1 1.3 1.5.4.4.9.8 1.5 1.1.2.1.3.1.4 0l.5-.4c.2-.1.4-.2.5-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3 0 .4-.4.6A5.2 5.2 0 0 1 8.4 7.6z"/></svg></a>
           </div>
         </div>
-
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="trustee.html">Trustee</a></li>
-            <li><a href="index.html#focus">Our Work</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="index.html#news">News &amp; Events</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
+        <div>
+          <h4 data-i18n="foot.quick">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home" data-i18n="nav.home">Home</a></li>
+            <li><a href="about-us.html" data-i18n="nav.about">About Us</a></li>
+            <li><a href="trustee.html" data-i18n="nav.trustee">Trustee</a></li>
+            <li><a href="index.html#services" data-i18n="nav.programs">Our Programs</a></li>
+            <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="index.html#news" data-i18n="nav.news">News & Updates</a></li>
+            <li><a href="contact-us.html" data-i18n="nav.contact">Contact Us</a></li>
           </ul>
         </div>
-
-        <div class="footer-col">
-          <h4>Our Work</h4>
-          <ul>
-            <li><a href="#">Cow &amp; Animal Welfare</a></li>
-            <li><a href="#">Community Support</a></li>
-            <li><a href="#">Health &amp; Nutrition</a></li>
-            <li><a href="#">Education Support</a></li>
+        <div>
+          <h4 data-i18n="foot.svc">Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#svc-oldage" data-i18n="svc.old">Old Age Home</a></li>
+            <li><a href="index.html#svc-gauseva" data-i18n="svc.gau">Gau Seva</a></li>
+            <li><a href="index.html#svc-hospital" data-i18n="svc.hospital">Hospital Food Service</a></li>
+            <li><a href="index.html#svc-street" data-i18n="svc.street">Street Food Service</a></li>
+            <li><a href="index.html#svc-education" data-i18n="svc.edu">Student Education Support</a></li>
           </ul>
         </div>
-
-        <div class="footer-col">
-          <h4>Support Us</h4>
-          <ul>
-            <li><a href="#">Donate Now</a></li>
-            <li><a href="#">Volunteer</a></li>
-            <li><a href="#">Sponsor a Program</a></li>
-            <li><a href="#">Corporate Partnership</a></li>
+        <div>
+          <h4 data-i18n="nav.contact">Contact Us</h4>
+          <ul class="footer-contact">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>38 – Somnathnagar Society, Vijaynagar Road,<br>Opposite Ambika Hardware, in the lane of Lalit Showroom,<br>Naranpura, Ahmedabad – 380013</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+91 99740 63064<br>+91 95586 46564</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>info@vasukicharitabletrust.org</span>
+            </li>
           </ul>
         </div>
-
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <ul>
-            <li>123, Vasuki Trust Road,<br>Varanasi, Uttar Pradesh – 221001</li>
-            <li><a href="tel:+919876543210">+91 98765 43210</a></li>
-            <li><a href="mailto:info@shreevasukitrust.org">info@shreevasukitrust.org</a></li>
-          </ul>
-        </div>
-
       </div>
-
       <div class="footer-bottom">
-        <p>Copyright &copy; 2026, All Rights Reserved.</p>
-        <p>Design By <a href="https://technomantra.in" target="_blank" rel="noopener" style="color:#C4A574;font-weight:600;text-decoration:none;">Techno Mantra India</a></p>
+        <span>Copyright &copy; 2026, All Rights Reserved.</span>
+        <span>Design By <a href="https://technomantra.in" target="_blank" rel="noopener" style="color:#C4A574;font-weight:600;text-decoration:none;">Techno Mantra India</a></span>
       </div>
     </div>
+  </footer>
     <script>
     // Mobile Menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const menuBackdrop = document.getElementById('menuBackdrop');
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', function() {
-        const isOpen = mobileMenu.classList.toggle('open');
-        hamburger.classList.toggle('open', isOpen);
-        if (menuBackdrop) menuBackdrop.classList.toggle('show', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      });
-      if (menuBackdrop) {
-        menuBackdrop.addEventListener('click', function() {
-          mobileMenu.classList.remove('open');
-          hamburger.classList.remove('open');
-          menuBackdrop.classList.remove('show');
-          document.body.style.overflow = '';
-        });
-      }
+    const mobileMenuCloseBtn = document.getElementById('mobileMenuCloseBtn');
+
+    function setMenu(open) {
+      if (mobileMenu) mobileMenu.classList.toggle('open', open);
+      if (hamburger) hamburger.classList.toggle('open', open);
+      if (menuBackdrop) menuBackdrop.classList.toggle('show', open);
+      document.body.style.overflow = open ? 'hidden' : '';
     }
+
+    if (hamburger) hamburger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
+    if (mobileMenuCloseBtn) mobileMenuCloseBtn.addEventListener('click', () => setMenu(false));
+    if (menuBackdrop) menuBackdrop.addEventListener('click', () => setMenu(false));
+    if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 
     // Language Switcher
     const contactI18N = {
       en: {
-        'top.phone': '+91 98765 43210',
-        'top.loc': 'Rajkot, Gujarat, India',
+        'top.phone': '+91 99740 63064',
+        'top.loc': 'Ahmedabad, Gujarat, India',
         'top.tag': 'Vatsalya Group Support Initiative',
         'nav.home': 'Home',
         'nav.about': 'About Us',
@@ -774,8 +900,8 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-s
         'nav.contact': 'Contact'
       },
       gu: {
-        'top.phone': '+91 98765 43210',
-        'top.loc': 'રાજકોટ, ગુજરાત, ભારત',
+        'top.phone': '+91 99740 63064',
+        'top.loc': 'અમદાવાદ, ગુજરાત, ભારત',
         'top.tag': 'વાત્સલ્ય ગ્રુપ સહાય પહેલ',
         'nav.home': 'હોમ',
         'nav.about': 'અમારા વિશે',

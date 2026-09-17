@@ -201,43 +201,141 @@ html[lang="gu"] .btn{font-family:'Noto Sans Gujarati','DM Sans',sans-serif}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{
-  position:fixed;inset:0 0 0 auto;width:min(340px,88vw);z-index:120;
-  background:#fff;box-shadow:-24px 0 60px rgba(22,22,79,.18);
-  padding:96px 28px 32px;
-  transform:translateX(105%);transition:transform .4s var(--ease);
-  display:flex;flex-direction:column;gap:4px;overflow-y:auto
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(340px, 88vw);
+  z-index: 1200;
+  background: #ffffff;
+  box-shadow: -20px 0 50px rgba(18, 20, 61, 0.25);
+  padding: 24px 24px 32px;
+  transform: translateX(105%);
+  transition: transform 0.38s cubic-bezier(0.22, 0.61, 0.36, 1);
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: auto;
 }
-.mobile-menu.open{transform:none}
-.mobile-menu > nav{display:flex;flex-direction:column}
-.mobile-menu a.mlink{
-  padding:12px 4px;font-size:15px;font-weight:500;color:var(--ink);
-  border-bottom:1px solid #F3F1FC
+
+.mobile-menu.open {
+  transform: translateX(0) !important;
 }
-.mm-group-toggle{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 4px;font-size:15px;font-weight:500;color:var(--ink);
-  border-bottom:1px solid #F3F1FC;text-align:left
+
+.mobile-menu-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding-bottom: 16px !important;
+  margin-bottom: 12px !important;
+  border-bottom: 1px solid #ECEAF8 !important;
 }
-.mm-group-toggle svg{width:12px;height:12px;transition:transform .3s}
-.mm-group-toggle.open svg{transform:rotate(180deg)}
-.mm-sub{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
-.mm-sub.open{max-height:320px}
-.mm-sub a{display:block;padding:9px 4px 9px 18px;font-size:13.5px;color:var(--muted)}
-.mm-actions{margin-top:22px;display:flex;flex-direction:column;gap:12px}
-.phone-btn{
-  display:inline-flex;align-items:center;gap:9px;
-  font-size:14px;font-weight:600;color:var(--purple);
-  padding:11px 20px;border:1.5px solid var(--purple);
-  border-radius:999px;text-decoration:none;transition:background .25s,color .25s;
+
+.mobile-menu-header img {
+  height: 38px;
+  width: auto;
 }
-.phone-btn svg, .mobile-menu svg { width: 16px !important; height: 16px !important; max-width: 16px !important; max-height: 16px !important; flex-shrink: 0 !important; display: inline-block !important; }
-.phone-btn:hover{background:var(--purple);color:#fff;}
-.menu-backdrop{
-  position:fixed;inset:0;z-index:110;background:rgba(18,20,61,.45);
-  opacity:0;visibility:hidden;transition:opacity .35s
+
+.mobile-menu-close {
+  font-size: 22px;
+  color: var(--navy);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  line-height: 1;
+  border-radius: 6px;
+  transition: background 0.2s;
 }
-.menu-backdrop.show{opacity:1;visibility:visible}
+
+.mobile-menu-close:hover {
+  background: #F3F1FC;
+}
+
+.mobile-menu nav {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.mobile-menu a.mlink {
+  display: block !important;
+  width: 100% !important;
+  padding: 13px 6px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  border-bottom: 1px solid #F3F1FC !important;
+  text-decoration: none !important;
+  transition: color 0.2s, padding-left 0.2s !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+}
+
+.mobile-menu a.mlink:hover,
+.mobile-menu a.mlink.active {
+  color: var(--purple) !important;
+  padding-left: 10px !important;
+}
+
+.mm-actions {
+  margin-top: 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.phone-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--purple) !important;
+  padding: 11px 20px !important;
+  border: 1.5px solid var(--purple) !important;
+  border-radius: 999px !important;
+  text-decoration: none !important;
+  transition: background .25s, color .25s !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.phone-btn svg,
+.mobile-menu svg {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+}
+
+.phone-btn:hover {
+  background: var(--purple) !important;
+  color: #fff !important;
+}
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(18, 20, 61, 0.45);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s, visibility 0.35s;
+}
+
+.menu-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
 
 /* Hero */
 .hero{
@@ -695,7 +793,7 @@ html[lang="gu"] .program h4{font-family:'Noto Sans Gujarati',sans-serif}
 
 /* Footer */
 .footer{background:var(--navy);color:#fff;padding:68px 0 0}
-.footer-grid{display:grid;grid-template-columns:1.7fr 1fr 1.15fr 1.1fr 1.35fr;gap:38px;padding-bottom:52px}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1.1fr 1.3fr 1.5fr;gap:40px;padding-bottom:52px}
 .footer-brand img{height:58px;width:auto;margin-bottom:18px}
 .footer-brand p{font-size:13px;color:rgba(255,255,255,.68);line-height:1.75;max-width:270px}
 .footer-social{display:flex;gap:10px;margin-top:20px}
@@ -708,9 +806,10 @@ html[lang="gu"] .program h4{font-family:'Noto Sans Gujarati',sans-serif}
 .footer h4{font-family:'DM Sans',sans-serif;font-size:14.5px;font-weight:600;margin-bottom:20px;padding-bottom:12px;position:relative}
 html[lang="gu"] .footer h4{font-family:'Noto Sans Gujarati',sans-serif}
 .footer h4::after{content:"";position:absolute;left:0;bottom:0;width:34px;height:2.5px;border-radius:3px;background:var(--purple-2)}
-.footer-links li{margin-bottom:11px}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.68);transition:.25s}
-.footer-links a:hover{color:#fff;padding-left:6px}
+.footer-links{list-style:none !important;padding:0 !important;margin:0 !important;display:flex !important;flex-direction:column !important;gap:11px !important}
+.footer-links li{margin:0 !important;padding:0 !important;display:block !important}
+.footer-links a{font-size:13.5px !important;color:rgba(255,255,255,.72) !important;transition:color .25s,padding-left .25s !important;text-decoration:none !important;display:inline-block !important}
+.footer-links a:hover{color:#fff !important;padding-left:6px !important}
 .footer-contact li{display:flex;gap:12px;margin-bottom:15px;font-size:13px;color:rgba(255,255,255,.68);line-height:1.65}
 .footer-contact svg{width:16px;height:16px;flex:none;margin-top:3px;color:#A79DF0}
 .footer-bottom{
@@ -820,17 +919,17 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--purple-2);outline
 <div class="topbar">
   <div class="container">
     <div class="topbar-info">
-      <a href="tel:+919876543210" aria-label="Helpline number">
+      <a href="tel:+919974063064" aria-label="Helpline number">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span data-i18n="top.phone">+91 98765 43210</span>
+        <span data-i18n="top.phone">+91 99740 63064</span>
       </a>
-      <a href="mailto:info@shreevasuki.org" aria-label="Email address">
+      <a href="mailto:info@vasukicharitabletrust.org" aria-label="Email address">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span>info@shreevasuki.org</span>
+        <span>info@vasukicharitabletrust.org</span>
       </a>
       <span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span data-i18n="top.loc">Rajkot, Gujarat, India</span>
+        <span data-i18n="top.loc">Ahmedabad, Gujarat, India</span>
       </span>
     </div>
     <div class="topbar-right">
@@ -871,8 +970,12 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--purple-2);outline
 <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <div class="mobile-menu-header">
+    <img src="vasuk logo.png" alt="Shree Vasuki Trust Logo">
+    <button type="button" class="mobile-menu-close" id="mobileMenuCloseBtn" aria-label="Close menu">✕</button>
+  </div>
   <nav>
-    <a class="mlink" href="index.html" data-i18n="nav.home">Home</a>
+    <a class="mlink active" href="index.html" data-i18n="nav.home">Home</a>
     <a class="mlink" href="about-us.html" data-i18n="nav.about">About Us</a>
     <a class="mlink" href="vatsalya-group.html" data-i18n="nav.vatsalya">Vatsalya Group</a>
     <a class="mlink" href="gallery.html" data-i18n="nav.gallery">Gallery</a>
@@ -880,11 +983,11 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--purple-2);outline
     <a class="mlink" href="contact-us.html" data-i18n="nav.contact">Contact</a>
   </nav>
   <div class="mm-actions">
-    <a class="phone-btn" href="tel:+919876543210" style="justify-content:center">
+    <a class="phone-btn" href="tel:+919974063064">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>+91 98765 43210</span>
+      <span data-i18n="top.phone">+91 99740 63064</span>
     </a>
-    <a href="#donate" class="btn btn-primary" data-i18n="cta.donate">Donate Now</a>
+    <a href="#donate" class="btn btn-primary" style="justify-content:center;" data-i18n="cta.donate">Donate Now</a>
   </div>
 </div>
 
@@ -1376,32 +1479,23 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--purple-2);outline
       <div>
         <h4 data-i18n="foot.quick">Quick Links</h4>
         <ul class="footer-links">
-          <li><a href="#home" data-i18n="nav.home">Home</a></li>
+          <li><a href="index.html#home" data-i18n="nav.home">Home</a></li>
           <li><a href="about-us.html" data-i18n="nav.about">About Us</a></li>
           <li><a href="trustee.html" data-i18n="nav.trustee">Trustee</a></li>
-          <li><a href="#services" data-i18n="nav.programs">Our Programs</a></li>
+          <li><a href="index.html#services" data-i18n="nav.programs">Our Programs</a></li>
           <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
-          <li><a href="#news" data-i18n="nav.news">News & Updates</a></li>
+          <li><a href="index.html#news" data-i18n="nav.news">News & Updates</a></li>
           <li><a href="contact-us.html" data-i18n="nav.contact">Contact Us</a></li>
         </ul>
       </div>
       <div>
         <h4 data-i18n="foot.svc">Our Services</h4>
         <ul class="footer-links">
-          <li><a href="#svc-oldage" data-i18n="svc.old">Old Age Home</a></li>
-          <li><a href="#svc-gauseva" data-i18n="svc.gau">Gau Seva</a></li>
-          <li><a href="#svc-hospital" data-i18n="svc.hospital">Hospital Food Service</a></li>
-          <li><a href="#svc-street" data-i18n="svc.street">Street Food Service</a></li>
-          <li><a href="#svc-education" data-i18n="svc.edu">Student Education Support</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-i18n="nav.involve">Get Involved</h4>
-        <ul class="footer-links">
-          <li><a href="#donate" data-i18n="cta.donate">Donate Now</a></li>
-          <li><a href="contact-us.html" data-i18n="cta.vol">Become a Volunteer</a></li>
-          <li><a href="#celebrate" data-i18n="cta.meal">Sponsor a Meal</a></li>
-          <li><a href="#svc-education" data-i18n="svc.edu">Support Education</a></li>
+          <li><a href="index.html#svc-oldage" data-i18n="svc.old">Old Age Home</a></li>
+          <li><a href="index.html#svc-gauseva" data-i18n="svc.gau">Gau Seva</a></li>
+          <li><a href="index.html#svc-hospital" data-i18n="svc.hospital">Hospital Food Service</a></li>
+          <li><a href="index.html#svc-street" data-i18n="svc.street">Street Food Service</a></li>
+          <li><a href="index.html#svc-education" data-i18n="svc.edu">Student Education Support</a></li>
         </ul>
       </div>
       <div>
@@ -1472,7 +1566,7 @@ const SLIDES = {
 
 const DICT = {
   en: {
-    'top.phone':'+91 98765 43210','top.loc':'Rajkot, Gujarat, India','top.tag':'Vatsalya Group Support Initiative',
+    'top.phone':'+91 99740 63064','top.loc':'Ahmedabad, Gujarat, India','top.tag':'Vatsalya Group Support Initiative',
     'nav.home':'Home','nav.about':'About Us','nav.work':'Our Work','nav.vatsalya':'Vatsalya Group','nav.trustee':'Trustee','nav.programs':'Our Programs','nav.involve':'Get Involved','nav.gallery':'Gallery','nav.news':'News','nav.contact':'Contact','nav.all':'All Programs',
     'svc.old':'Old Age Home','svc.gau':'Gau Seva','svc.hospital':'Hospital Food Service','svc.street':'Street Food Service','svc.edu':'Student Education Support',
     'cta.donate':'Donate Now','cta.meal':'Sponsor a Meal','cta.vol':'Become a Volunteer','cta.watch':'Watch Our Story','cta.more':'Learn More','cta.strip':'Join hands. Serve humanity.','cta.stripp':'Volunteer with us, sponsor a celebration, or simply visit Vatsalya Vrudhashram.',
@@ -1519,7 +1613,7 @@ const DICT = {
     'foot.about':'Serving humanity through Old Age Care, Gau Seva, Food Seva and Education Support. Registered charitable trust, Ahmedabad.','foot.quick':'Quick Links','foot.svc':'Our Services'
   },
   gu: {
-    'top.phone':'+91 98765 43210','top.loc':'રાજકોટ, ગુજરાત, ભારત','top.tag':'વાત્સલ્ય ગ્રુપ સહાય પહેલ',
+    'top.phone':'+91 99740 63064','top.loc':'અમદાવાદ, ગુજરાત, ભારત','top.tag':'વાત્સલ્ય ગ્રુપ સહાય પહેલ','top.tag':'વાત્સલ્ય ગ્રુપ સહાય પહેલ',
     'nav.home':'હોમ','nav.about':'અમારા વિશે','nav.work':'અમારું કાર્ય','nav.vatsalya':'વાત્સલ્ય ગ્રુપ','nav.trustee':'ટ્રસ્ટી','nav.programs':'અમારા કાર્યક્રમો','nav.involve':'જોડાઓ','nav.gallery':'ગેલેરી','nav.news':'સમાચાર','nav.contact':'સંપર્ક','nav.all':'બધા કાર્યક્રમો',
     'svc.old':'વૃદ્ધાશ્રમ','svc.gau':'ગૌ સેવા','svc.hospital':'હોસ્પિટલ અન્નસેવા','svc.street':'શેરી અન્નસેવા','svc.edu':'વિદ્યાર્થી શિક્ષણ સહાય',
     'cta.donate':'દાન કરો','cta.meal':'ભોજન પ્રાયોજિત કરો','cta.vol':'સેવક બનો','cta.watch':'અમારી વાર્તા જુઓ','cta.more':'વધુ જાણો','cta.strip':'હાથ મિલાવો. માનવતાની સેવા કરો.','cta.stripp':'સેવક બનો, ઉજવણી પ્રાયોજિત કરો, અથવા વાત્સલ્ય વૃદ્ધાશ્રમની મુલાકાત લો.',
@@ -1598,6 +1692,8 @@ function setMenu(open){
   backdrop.classList.toggle('show', open);
   document.body.style.overflow = open ? 'hidden' : '';
 }
+const mobileMenuCloseBtn = document.getElementById('mobileMenuCloseBtn');
+if (mobileMenuCloseBtn) mobileMenuCloseBtn.addEventListener('click', () => setMenu(false));
 hamburger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
 backdrop.addEventListener('click', () => setMenu(false));
 mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));

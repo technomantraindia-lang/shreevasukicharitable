@@ -308,53 +308,142 @@
 
     /* Mobile Menu */
     .mobile-menu {
-      display: none;
       position: fixed;
       top: 0;
-      right: -100%;
-      width: 82%;
-      max-width: 340px;
-      height: 100vh;
-      background: #ffffff;
+      right: 0;
+      bottom: 0;
+      width: min(340px, 88vw);
       z-index: 2000;
-      padding: 30px 24px;
-      box-shadow: -10px 0 30px rgba(0,0,0,0.15);
-      transition: right 0.35s ease-in-out;
-      flex-direction: column;
-      justify-content: space-between;
+      background: #ffffff;
+      box-shadow: -20px 0 50px rgba(18, 20, 61, 0.25);
+      padding: 24px 24px 32px;
+      transform: translateX(105%);
+      transition: transform 0.38s cubic-bezier(0.22, 0.61, 0.36, 1);
+      display: flex !important;
+      flex-direction: column !important;
       overflow-y: auto;
     }
+
     .mobile-menu.open {
-      right: 0;
+      transform: translateX(0) !important;
     }
+
+    .mobile-menu-header {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding-bottom: 16px !important;
+      margin-bottom: 12px !important;
+      border-bottom: 1px solid #ECEAF8 !important;
+    }
+
+    .mobile-menu-header img {
+      height: 38px;
+      width: auto;
+    }
+
+    .mobile-menu-close {
+      font-size: 22px;
+      color: var(--navy);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 10px;
+      line-height: 1;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .mobile-menu-close:hover {
+      background: #F3F1FC;
+    }
+
+    .mobile-menu nav {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+      gap: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .mobile-menu a.mlink {
+      display: block !important;
+      width: 100% !important;
+      padding: 13px 6px !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      color: var(--ink, #12143D) !important;
+      border-bottom: 1px solid #F3F1FC !important;
+      text-decoration: none !important;
+      transition: color 0.2s, padding-left 0.2s !important;
+      box-sizing: border-box !important;
+      text-align: left !important;
+    }
+
+    .mobile-menu a.mlink:hover,
+    .mobile-menu a.mlink.active {
+      color: var(--purple, #34259A) !important;
+      padding-left: 10px !important;
+    }
+
+    .mm-actions {
+      margin-top: 24px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      width: 100% !important;
+    }
+
+    .phone-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 9px !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      color: var(--purple, #34259A) !important;
+      padding: 11px 20px !important;
+      border: 1.5px solid var(--purple, #34259A) !important;
+      border-radius: 999px !important;
+      text-decoration: none !important;
+      transition: background .25s, color .25s !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .phone-btn svg,
+    .mobile-menu svg {
+      width: 16px !important;
+      height: 16px !important;
+      max-width: 16px !important;
+      max-height: 16px !important;
+      flex-shrink: 0 !important;
+      display: inline-block !important;
+    }
+
+    .phone-btn:hover {
+      background: var(--purple, #34259A) !important;
+      color: #fff !important;
+    }
+
     .menu-backdrop {
-      display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.5);
       z-index: 1999;
+      background: rgba(18, 20, 61, 0.45);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s, visibility 0.35s;
     }
+
+    .menu-backdrop.show,
     .menu-backdrop.open {
-      display: block;
+      opacity: 1;
+      visibility: visible;
+      display: block !important;
     }
-    .mobile-menu nav {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 20px;
-    }
-    .mobile-menu .mlink {
-      font-size: 16px;
-      font-weight: 600;
-      padding: 10px 14px;
-      border-radius: 8px;
-      color: var(--navy);
-    }
-    .mobile-menu .mlink:hover {
-      background: var(--purple-50);
-      color: var(--purple);
-    }
-    .phone-btn svg, .mobile-menu svg { width: 16px !important; height: 16px !important; max-width: 16px !important; max-height: 16px !important; flex-shrink: 0 !important; display: inline-block !important; }
 
     /* =========================================================
        HERO SECTION
@@ -1603,96 +1692,128 @@
        ========================================================= */
     .footer {
       background: var(--navy);
-      color: #ffffff;
-      padding: 70px 0 25px;
-      position: relative;
+      color: #fff;
+      padding: 68px 0 0;
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1.2fr 1.1fr;
+      grid-template-columns: 1.8fr 1.1fr 1.3fr 1.5fr;
       gap: 40px;
-      margin-bottom: 50px;
+      padding-bottom: 52px;
     }
     .footer-brand img {
-      height: 44px;
+      height: 58px;
       width: auto;
-      margin-bottom: 16px;
-      filter: brightness(12);
+      margin-bottom: 18px;
     }
     .footer-brand p {
-      font-size: 13.5px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,.68);
+      line-height: 1.75;
+      max-width: 270px;
     }
-    .social-links {
+    .footer-social {
       display: flex;
       gap: 10px;
+      margin-top: 20px;
     }
-    .social-links a {
+    .footer-social a {
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      color: #ffffff;
-      display: flex;
+      border: 1px solid rgba(255,255,255,.22);
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: var(--transition);
+      transition: .3s;
+      color: #fff;
+      text-decoration: none;
     }
-    .social-links a:hover {
-      background: var(--purple-light);
-      transform: translateY(-2px);
+    .footer-social a:hover {
+      background: var(--purple-2);
+      border-color: var(--purple-2);
+      transform: translateY(-3px);
     }
-    .social-links svg {
+    .footer-social svg {
+      width: 15px;
+      height: 15px;
+    }
+    .footer h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      position: relative;
+      color: #fff;
+    }
+    html[lang="gu"] .footer h4 {
+      font-family: 'Noto Sans Gujarati', sans-serif;
+    }
+    .footer h4::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 34px;
+      height: 2.5px;
+      border-radius: 3px;
+      background: var(--purple-2);
+    }
+    .footer-links {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 11px !important;
+    }
+    .footer-links li {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: block !important;
+    }
+    .footer-links a {
+      font-size: 13.5px !important;
+      color: rgba(255,255,255,.72) !important;
+      transition: color .25s, padding-left .25s !important;
+      text-decoration: none !important;
+      display: inline-block !important;
+    }
+    .footer-links a:hover {
+      color: #fff !important;
+      padding-left: 6px !important;
+    }
+    .footer-contact {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-contact li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      color: rgba(255,255,255,.68);
+      line-height: 1.65;
+    }
+    .footer-contact svg {
       width: 16px;
       height: 16px;
-    }
-    .footer-col h4 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 18px;
-    }
-    .footer-col ul {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .footer-col a {
-      font-size: 13.5px;
-      color: rgba(255,255,255,0.75);
-      transition: var(--transition);
-    }
-    .footer-col a:hover {
-      color: #ffffff;
-      padding-left: 4px;
-    }
-    .footer-contact-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 13.5px;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 12px;
-    }
-    .footer-contact-list svg {
-      width: 18px;
-      height: 18px;
-      color: #a78bfa;
-      flex-shrink: 0;
-      margin-top: 2px;
+      flex: none;
+      margin-top: 3px;
+      color: #A79DF0;
     }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding: 22px 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 13px;
-      color: rgba(255,255,255,0.55);
-      flex-wrap: wrap;
       gap: 12px;
+      flex-wrap: wrap;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.6);
     }
 
     /* =========================================================
@@ -1940,6 +2061,12 @@
       }
       .footer-grid {
         grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
       }
     }
   </style>
@@ -1952,13 +2079,13 @@
   <div class="topbar">
     <div class="container">
       <div class="topbar-info">
-        <a href="tel:+919876543210" aria-label="Helpline number">
+        <a href="tel:+919974063064" aria-label="Helpline number">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span data-i18n="top.phone">+91 98765 43210</span>
+          <span data-i18n="top.phone">+91 99740 63064</span>
         </a>
-        <a href="mailto:info@shreevasuki.org" aria-label="Email address">
+        <a href="mailto:info@vasukicharitabletrust.org" aria-label="Email address">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span>info@shreevasuki.org</span>
+          <span>info@vasukicharitabletrust.org</span>
         </a>
         <span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -2005,17 +2132,25 @@
   <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <img src="vasuk logo.png" alt="Shree Vasuki Trust Logo">
+      <button type="button" class="mobile-menu-close" id="mobileMenuCloseBtn" aria-label="Close menu">✕</button>
+    </div>
     <nav>
       <a class="mlink" href="index.html" data-i18n="nav.home">Home</a>
       <a class="mlink" href="about-us.html" data-i18n="nav.about">About Us</a>
-      <a class="mlink" href="vatsalya-group.html" style="color:var(--purple);font-weight:700" data-i18n="nav.vatsalya">Vatsalya Group</a>
+      <a class="mlink active" href="vatsalya-group.html" data-i18n="nav.vatsalya">Vatsalya Group</a>
       <a class="mlink" href="gallery.html" data-i18n="nav.gallery">Gallery</a>
       <a class="mlink" href="trustee.html" data-i18n="nav.trustee">Trustee</a>
       <a class="mlink" href="contact-us.html" data-i18n="nav.contact">Contact</a>
     </nav>
-    <div style="margin-top:20px; display:flex; flex-direction:column; gap:12px;">
-      <a class="btn btn-primary" href="#join" data-i18n="hero.joinBtn">Join Vatsalya Group</a>
-      <a class="btn btn-outline" href="index.html#donate" data-i18n="cta.donate">Donate</a>
+    <div class="mm-actions">
+      <a class="phone-btn" href="tel:+919974063064">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-i18n="top.phone">+91 99740 63064</span>
+      </a>
+      <a class="btn btn-primary" href="#join" style="justify-content:center;" data-i18n="hero.joinBtn">Join Vatsalya Group</a>
+      <a class="btn btn-outline" href="index.html#donate" style="justify-content:center;" data-i18n="cta.donate">Donate</a>
     </div>
   </div>
 
@@ -2680,68 +2815,59 @@
   <!-- =========================================================
        FOOTER
        ========================================================= -->
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html">
-            <img src="vasuk logo.png" alt="Shree Vasuki Charitable Trust">
-          </a>
-          <p data-i18n="footer.desc">Serving humanity with compassion, care and commitment. Together we can build a better tomorrow for every individual.</p>
-          <div class="social-links" aria-label="Social media">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            </a>
-            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.125.556 4.197 1.611 6.024L.107 23.893l6.008-1.576a11.968 11.968 0 0 0 5.916 1.554h.005c6.645 0 12.03-5.385 12.03-12.031 0-3.213-1.252-6.234-3.526-8.508C18.266 1.258 15.244 0 12.031 0zm0 22.015h-.004a9.98 9.98 0 0 1-5.086-1.39l-.365-.216-3.778.991 1.008-3.684-.237-.377a9.97 9.97 0 0 1-1.528-5.308c0-5.518 4.49-10.008 10.012-10.008 2.673 0 5.186 1.041 7.076 2.932a9.946 9.946 0 0 1 2.93 7.075c0 5.518-4.49 10.008-10.008 10.008z"/></svg>
-            </a>
+          <img src="vasuk-logo-light.png" alt="Shree Vasuki Charitable Trust">
+          <p data-i18n="foot.about">Serving humanity through Old Age Care, Gau Seva, Food Seva and Education Support. Registered charitable trust, Ahmedabad.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#16164F"/></svg></a>
+            <a href="https://wa.me/919974063064" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 11.4A8.4 8.4 0 0 1 7.2 18.5L4 20l1.6-3.1A8.4 8.4 0 1 1 20 11.4zM8.4 7.6c.2-.4.3-.4.6-.4h.5c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.5l-.4.5c-.1.1-.1.3 0 .4.3.5.8 1.1 1.3 1.5.4.4.9.8 1.5 1.1.2.1.3.1.4 0l.5-.4c.2-.1.4-.2.5-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3 0 .4-.4.6A5.2 5.2 0 0 1 8.4 7.6z"/></svg></a>
           </div>
         </div>
-
-        <div class="footer-col">
-          <h4 data-i18n="footer.quickLinks">Quick Links</h4>
-          <ul>
-            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <div>
+          <h4 data-i18n="foot.quick">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home" data-i18n="nav.home">Home</a></li>
             <li><a href="about-us.html" data-i18n="nav.about">About Us</a></li>
-            <li><a href="vatsalya-group.html" data-i18n="nav.vatsalya">Vatsalya Group</a></li>
-            <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
             <li><a href="trustee.html" data-i18n="nav.trustee">Trustee</a></li>
+            <li><a href="index.html#services" data-i18n="nav.programs">Our Programs</a></li>
+            <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="index.html#news" data-i18n="nav.news">News & Updates</a></li>
             <li><a href="contact-us.html" data-i18n="nav.contact">Contact Us</a></li>
           </ul>
         </div>
-
-        <div class="footer-col">
-          <h4 data-i18n="footer.getInTouch">Get in Touch</h4>
-          <ul class="footer-contact-list">
+        <div>
+          <h4 data-i18n="foot.svc">Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#svc-oldage" data-i18n="svc.old">Old Age Home</a></li>
+            <li><a href="index.html#svc-gauseva" data-i18n="svc.gau">Gau Seva</a></li>
+            <li><a href="index.html#svc-hospital" data-i18n="svc.hospital">Hospital Food Service</a></li>
+            <li><a href="index.html#svc-street" data-i18n="svc.street">Street Food Service</a></li>
+            <li><a href="index.html#svc-education" data-i18n="svc.edu">Student Education Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="nav.contact">Contact Us</h4>
+          <ul class="footer-contact">
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>Shree Vasuki Charitable Trust, Rajkot, Gujarat, India</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>38 – Somnathnagar Society, Vijaynagar Road,<br>Opposite Ambika Hardware, in the lane of Lalit Showroom,<br>Naranpura, Ahmedabad – 380013</span>
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <span>+91 98765 43210</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+91 99740 63064<br>+91 95586 46564</span>
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <span>info@shreevasuki.org</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>info@vasukicharitabletrust.org</span>
             </li>
           </ul>
         </div>
-
-        <div class="footer-col">
-          <h4 data-i18n="footer.pledge">Our Pledge</h4>
-          <p style="font-size:13.5px; color:rgba(255,255,255,0.75); line-height:1.65;" data-i18n="footer.pledgeDesc">
-            Vatsalya Group stands on the pillars of mutual family support and selfless charitable seva. Every life touched is a step toward a kinder, brighter tomorrow.
-          </p>
-        </div>
       </div>
-
       <div class="footer-bottom">
         <span>Copyright &copy; 2026, All Rights Reserved.</span>
         <span>Design By <a href="https://technomantra.in" target="_blank" rel="noopener" style="color:#C4A574;font-weight:600;text-decoration:none;">Techno Mantra India</a></span>
@@ -2779,11 +2905,11 @@
       </div>
 
       <div style="display:flex; flex-direction:column; gap:10px;">
-        <a href="tel:+919876543210" class="btn btn-primary" style="width:100%; justify-content:center;">
+        <a href="tel:+919974063064" class="btn btn-primary" style="width:100%; justify-content:center;">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span data-i18n="modal.call">Call for Membership Registration</span>
         </a>
-        <a href="https://wa.me/919876543210?text=Hello%2C%20I%20want%20to%20join%20Vatsalya%20Group." target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width:100%; justify-content:center; color:#059669; border-color:#a7f3d0;">
+        <a href="https://wa.me/919974063064?text=Hello%2C%20I%20want%20to%20join%20Vatsalya%20Group." target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width:100%; justify-content:center; color:#059669; border-color:#a7f3d0;">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.125.556 4.197 1.611 6.024L.107 23.893l6.008-1.576a11.968 11.968 0 0 0 5.916 1.554h.005c6.645 0 12.03-5.385 12.03-12.031 0-3.213-1.252-6.234-3.526-8.508C18.266 1.258 15.244 0 12.031 0zm0 22.015h-.004a9.98 9.98 0 0 1-5.086-1.39l-.365-.216-3.778.991 1.008-3.684-.237-.377a9.97 9.97 0 0 1-1.528-5.308c0-5.518 4.49-10.008 10.012-10.008 2.673 0 5.186 1.041 7.076 2.932a9.946 9.946 0 0 1 2.93 7.075c0 5.518-4.49 10.008-10.008 10.008z"/></svg>
           <span>Connect via WhatsApp</span>
         </a>
@@ -2799,15 +2925,21 @@
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const menuBackdrop = document.getElementById('menuBackdrop');
+    const mobileMenuCloseBtn = document.getElementById('mobileMenuCloseBtn');
 
-    function toggleMenu() {
-      const isOpen = mobileMenu.classList.toggle('open');
-      menuBackdrop.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', isOpen);
+    function toggleMenu(open) {
+      const isOpen = open !== undefined ? open : !mobileMenu.classList.contains('open');
+      if (hamburger) hamburger.classList.toggle('open', isOpen);
+      if (mobileMenu) mobileMenu.classList.toggle('open', isOpen);
+      if (menuBackdrop) menuBackdrop.classList.toggle('show', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (hamburger) hamburger.setAttribute('aria-expanded', isOpen);
     }
 
-    if (hamburger) hamburger.addEventListener('click', toggleMenu);
-    if (menuBackdrop) menuBackdrop.addEventListener('click', toggleMenu);
+    if (hamburger) hamburger.addEventListener('click', () => toggleMenu());
+    if (mobileMenuCloseBtn) mobileMenuCloseBtn.addEventListener('click', () => toggleMenu(false));
+    if (menuBackdrop) menuBackdrop.addEventListener('click', () => toggleMenu(false));
+    if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
     // --- Join Modal ---
     const joinModal = document.getElementById('joinModal');
@@ -2854,8 +2986,8 @@
     // --- Real-time Bilingual (EN / GU) Translation ---
     const translations = {
       en: {
-        "top.phone": "+91 98765 43210",
-        "top.loc": "Rajkot, Gujarat, India",
+        "top.phone": "+91 99740 63064",
+        "top.loc": "Ahmedabad, Gujarat, India",
         "top.tag": "Vatsalya Group Support Initiative",
         "nav.home": "Home",
         "nav.about": "About Us",
@@ -2971,8 +3103,8 @@
         "modal.call": "Call for Membership Registration"
       },
       gu: {
-        "top.phone": "+91 98765 43210",
-        "top.loc": "રાજકોટ, ગુજરાત, ભારત",
+        "top.phone": "+91 99740 63064",
+        "top.loc": "અમદાવાદ, ગુજરાત, ભારત",
         "top.tag": "વાત્સલ્ય ગ્રુપ સામાજિક સહાય પહેલ",
         "nav.home": "મુખ્ય પૃષ્ઠ",
         "nav.about": "અમારા વિશે",
