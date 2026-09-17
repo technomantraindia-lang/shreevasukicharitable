@@ -1,0 +1,13 @@
+{
+  "name": "shreevasukicharitable",
+  "version": "1.0.0",
+  "description": "Shree Vasuki Charitable Trust - CCAvenue Donation Payment Flow",
+  "main": "api/create-payment.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

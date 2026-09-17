@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/create-payment",
+      "dest": "/api/create-payment.js"
+    },
+    {
+      "src": "/api/ccavenue-response",
+      "dest": "/api/ccavenue-response.js"
+    },
+    {
+      "src": "/donate",
+      "dest": "/donate.html"
+    },
+    {
+      "src": "/donation-success",
+      "dest": "/donation-success.html"
+    },
+    {
+      "src": "/donation-failed",
+      "dest": "/donation-failed.html"
+    },
+    {
+      "src": "/donation-pending",
+      "dest": "/donation-pending.html"
+    }
+  ]
+}
