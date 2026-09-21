@@ -1,12 +1,29 @@
 const ccavenueCrypto = require('./ccavenue-crypto');
 const querystring = require('querystring');
 
+function getSiteUrl() {
+  const configuredUrl = process.env.SITE_URL;
+  if (!configuredUrl) return null;
+
+  try {
+    const url = new URL(configuredUrl);
+    return url.protocol === 'https:' ? url.origin : null;
+  } catch (_) {
+    return null;
+  }
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).send('Method Not Allowed');
   }
 
   try {
+    const siteUrl = getSiteUrl();
+    if (!siteUrl) {
+      return res.status(500).send('Payment response configuration error.');
+    }
+
     let rawBody = '';
 
     // Handle incoming POST form data body
@@ -26,8 +43,7 @@ module.exports = async function handler(req, res) {
     const workingKey = process.env.CCAVENUE_WORKING_KEY;
 
     if (!encResp || !workingKey) {
-      console.error('CCAvenue Callback missing encResp or workingKey');
-      return res.redirect(302, '/donation-failed.html?reason=Invalid+payment+response');
+      return res.redirect(302, `${siteUrl}/donation-failed.html?reason=Invalid+payment+response`);
     }
 
     // Decrypt CCAvenue response payload
@@ -58,7 +74,7 @@ module.exports = async function handler(req, res) {
         date: currentDate,
         status: 'Success'
       });
-      return res.redirect(302, `/donation-success.html?${successQuery.toString()}`);
+      return res.redirect(302, `${siteUrl}/donation-success.html?${successQuery.toString()}`);
     } else if (orderStatus.toLowerCase() === 'pending') {
       const pendingQuery = new URLSearchParams({
         order_id: orderId,
@@ -67,7 +83,7 @@ module.exports = async function handler(req, res) {
         purpose: purpose,
         status: 'Pending'
       });
-      return res.redirect(302, `/donation-pending.html?${pendingQuery.toString()}`);
+      return res.redirect(302, `${siteUrl}/donation-pending.html?${pendingQuery.toString()}`);
     } else {
       // Aborted or Failure
       const failureQuery = new URLSearchParams({
@@ -75,10 +91,11 @@ module.exports = async function handler(req, res) {
         reason: failureMsg,
         status: orderStatus || 'Failure'
       });
-      return res.redirect(302, `/donation-failed.html?${failureQuery.toString()}`);
+      return res.redirect(302, `${siteUrl}/donation-failed.html?${failureQuery.toString()}`);
     }
-  } catch (err) {
-    console.error('Error processing CCAvenue callback:', err);
-    return res.redirect(302, '/donation-failed.html?reason=Server+error+processing+payment+response');
+  } catch (_) {
+    const siteUrl = getSiteUrl();
+    if (!siteUrl) return res.status(500).send('Payment response processing error.');
+    return res.redirect(302, `${siteUrl}/donation-failed.html?reason=Payment+response+could+not+be+verified`);
   }
 };

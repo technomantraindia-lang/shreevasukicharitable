@@ -1,15 +1,25 @@
 const ccavenueCrypto = require('./ccavenue-crypto');
+const crypto = require('crypto');
+
+function getSiteUrl() {
+  const configuredUrl = process.env.SITE_URL;
+  if (!configuredUrl) return null;
+
+  try {
+    const url = new URL(configuredUrl);
+    return url.protocol === 'https:' ? url.origin : null;
+  } catch (_) {
+    return null;
+  }
+}
+
+function createOrderId() {
+  const timestamp = new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0, 14);
+  const suffix = crypto.randomBytes(3).toString('hex').toUpperCase();
+  return `SVCT-${timestamp.slice(0, 8)}-${timestamp.slice(8)}-${suffix}`;
+}
 
 module.exports = async function handler(req, res) {
-  // CORS Headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
@@ -33,9 +43,8 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'Please enter a valid email address.' });
     }
 
-    const phoneRegex = /^[6-9]\d{9}$/;
     const cleanMobile = (mobile || '').toString().trim().replace(/\D/g, '');
-    if (!cleanMobile || cleanMobile.length !== 10) {
+    if (!/^[6-9]\d{9}$/.test(cleanMobile)) {
       return res.status(400).json({ error: 'Please enter a valid 10-digit Indian mobile number.' });
     }
 
@@ -47,12 +56,10 @@ module.exports = async function handler(req, res) {
     const merchantId = process.env.CCAVENUE_MERCHANT_ID;
     const accessCode = process.env.CCAVENUE_ACCESS_CODE;
     const workingKey = process.env.CCAVENUE_WORKING_KEY;
-    const redirectUrl = process.env.CCAVENUE_REDIRECT_URL || 'https://shreevasukicharitable.vercel.app/api/ccavenue-response';
-    const cancelUrl = process.env.CCAVENUE_CANCEL_URL || 'https://shreevasukicharitable.vercel.app/api/ccavenue-response';
-    const isSandbox = process.env.CCAVENUE_ENV === 'sandbox' || process.env.CCAVENUE_TEST_MODE === 'true';
+    const siteUrl = getSiteUrl();
 
     // Check if CCAvenue credentials are missing
-    if (!merchantId || !accessCode || !workingKey) {
+    if (!merchantId || !accessCode || !workingKey || !siteUrl) {
       return res.status(400).json({
         error: 'CCAvenue payment credentials are not configured.',
         configured: false
@@ -60,7 +67,7 @@ module.exports = async function handler(req, res) {
     }
 
     // Generate unique order ID
-    const orderId = `SVCT_${Date.now()}_${Math.floor(1000 + Math.random() * 9000)}`;
+    const orderId = createOrderId();
 
     // Sanitize string inputs for CCAvenue request
     const cleanName = name.trim().replace(/[&='"]/g, '');
@@ -75,8 +82,8 @@ module.exports = async function handler(req, res) {
       order_id: orderId,
       currency: 'INR',
       amount: numAmount.toFixed(2),
-      redirect_url: redirectUrl,
-      cancel_url: cancelUrl,
+      redirect_url: `${siteUrl}/api/ccavenue-response`,
+      cancel_url: `${siteUrl}/api/ccavenue-response`,
       language: 'EN',
       billing_name: cleanName,
       billing_email: cleanEmail,
@@ -91,9 +98,7 @@ module.exports = async function handler(req, res) {
     // Encrypt request payload
     const encRequest = ccavenueCrypto.encrypt(plainText, workingKey);
 
-    const paymentUrl = isSandbox
-      ? 'https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction'
-      : 'https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction';
+    const paymentUrl = 'https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction';
 
     return res.status(200).json({
       success: true,
@@ -102,8 +107,7 @@ module.exports = async function handler(req, res) {
       accessCode,
       paymentUrl
     });
-  } catch (err) {
-    console.error('Error creating CCAvenue payment request:', err);
+  } catch (_) {
     return res.status(500).json({ error: 'Server error creating payment request.' });
   }
 };

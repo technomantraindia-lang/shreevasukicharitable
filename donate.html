@@ -247,28 +247,28 @@
 
           <div class="form-group">
             <label for="customAmount" class="form-label" data-i18n="don.otherAmount">Other Amount (₹) <span class="req">*</span></label>
-            <input type="number" id="customAmount" class="form-control" placeholder="Enter amount in ₹" min="1" step="1" value="1000" required>
+            <input type="number" id="customAmount" name="amount" class="form-control" placeholder="Enter amount in ₹" min="1" step="1" value="1000" required>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="fullName" class="form-label" data-i18n="don.fullName">Full Name <span class="req">*</span></label>
-              <input type="text" id="fullName" class="form-control" placeholder="Your full name" required>
+              <input type="text" id="fullName" name="name" class="form-control" placeholder="Your full name" autocomplete="name" required>
             </div>
             <div class="form-group">
               <label for="mobileNumber" class="form-label" data-i18n="don.mobile">Mobile Number <span class="req">*</span></label>
-              <input type="tel" id="mobileNumber" class="form-control" placeholder="10-digit mobile number" maxlength="10" required>
+              <input type="tel" id="mobileNumber" name="mobile" class="form-control" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric" autocomplete="tel" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="emailAddress" class="form-label" data-i18n="don.email">Email Address <span class="req">*</span></label>
-              <input type="email" id="emailAddress" class="form-control" placeholder="name@example.com" required>
+              <input type="email" id="emailAddress" name="email" class="form-control" placeholder="name@example.com" autocomplete="email" required>
             </div>
             <div class="form-group">
               <label for="donationPurpose" class="form-label" data-i18n="don.purpose">Donation Purpose <span class="req">*</span></label>
-              <select id="donationPurpose" class="form-control" required>
+              <select id="donationPurpose" name="purpose" class="form-control" required>
                 <option value="General Donation" selected>General Donation</option>
                 <option value="Education Support">Education Support</option>
                 <option value="Animal Welfare">Animal Welfare / Gau Seva</option>
@@ -282,11 +282,11 @@
 
           <div class="form-group">
             <label for="panNumber" class="form-label" data-i18n="don.pan">PAN Number (Optional)</label>
-            <input type="text" id="panNumber" class="form-control" placeholder="ABCDE1234F" maxlength="10" style="text-transform:uppercase;">
+            <input type="text" id="panNumber" name="pan" class="form-control" placeholder="ABCDE1234F" maxlength="10" style="text-transform:uppercase;">
           </div>
 
           <div class="checkbox-group">
-            <input type="checkbox" id="receiptCheckbox" checked>
+            <input type="checkbox" id="receiptCheckbox" name="receipt" checked>
             <label for="receiptCheckbox" data-i18n="don.receiptReq">I would like to receive a donation receipt</label>
           </div>
 
@@ -453,6 +453,7 @@
     const submitBtn = document.getElementById('submitBtn');
     const btnSpinner = document.getElementById('btnSpinner');
     const btnText = document.getElementById('btnText');
+    let isSubmitting = false;
 
     function showAlert(msg) {
       alertBox.textContent = msg;
@@ -473,6 +474,7 @@
 
     donationForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (isSubmitting) return;
       hideAlert();
 
       const amount = parseFloat(customAmountInput.value);
@@ -502,6 +504,7 @@
         return showAlert('Please select a donation purpose.');
       }
 
+      isSubmitting = true;
       setLoading(true);
 
       try {
@@ -511,11 +514,19 @@
           body: JSON.stringify({ amount, name, mobile, email, purpose, pan, receipt })
         });
 
-        const data = await response.json();
+        const responseText = await response.text();
+        let data = {};
+
+        try {
+          data = responseText ? JSON.parse(responseText) : {};
+        } catch (_) {
+          // Vercel may return an HTML error page for an unavailable function.
+        }
 
         if (!response.ok || !data.success) {
+          isSubmitting = false;
           setLoading(false);
-          return showAlert(data.error || 'CCAvenue payment credentials are not configured.');
+          return showAlert(data.error || 'The secure payment service is temporarily unavailable. Please try again later.');
         }
 
         // Auto-submit encrypted request to CCAvenue
@@ -525,10 +536,10 @@
         ccavenueForm.action = data.paymentUrl;
         ccavenueForm.submit();
 
-      } catch (err) {
-        console.error('Submission error:', err);
+      } catch (_) {
+        isSubmitting = false;
         setLoading(false);
-        showAlert('Network error communicating with payment server. Please try again.');
+        showAlert('Unable to reach the secure payment service. Please check your connection and try again.');
       }
     });
 
