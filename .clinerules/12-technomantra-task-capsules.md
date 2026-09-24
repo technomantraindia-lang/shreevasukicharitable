@@ -18,10 +18,10 @@ The extension refreshes this file automatically. Prefer its concise state over o
 - Workspace ID: tm-ws-4d8d836ed7fa672b373569c1
 - Window ID: tm-win-4149b24c4f5c432481f56b8f
 - Project: shreevasukicharitabletrust
-- Framework: 
+- Framework: node
 - Developer mode: smart
 - Model mode: paid/manual
-- Active file: none
+- Active file: vatsalya-club.html
 - Objective: Current developer prompt in this workspace/window only.
 - Blocker: none
 - Next action: Inspect current prompt and workspace evidence before editing.
@@ -29,6 +29,17 @@ The extension refreshes this file automatically. Prefer its concise state over o
 ## Touched files in this capsule
 
 ## Recent files in this workspace/window
+- vatsalya-club.html
+- amezproduct.code-workspace
+- donation-pending.html
+- donation-success.html
+- donation-failed.html
+- donate.html
+- CCAVENUE_SETUP.md
+- api/ccavenue-response.js
+- api/create-payment.js
+- api/ccavenue-crypto.js
+- .env.example
 
 ## Hard rule
 If a file, goal, screenshot, terminal output, or decision is not connected to this capsule, do not use it for the current task.

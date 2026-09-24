@@ -173,13 +173,14 @@
       transition: var(--transition);
     }
     .header-inner {
-      max-width: 1240px;
+      max-width: 1440px;
+      width: 100%;
       margin: 0 auto;
-      padding: 12px 24px;
+      padding: 12px 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
     }
     .logo img {
       height: 48px;
@@ -188,7 +189,8 @@
     .nav {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 18px;
+      flex-wrap: nowrap;
     }
     .nav a {
       font-size: 14.5px;
@@ -197,6 +199,7 @@
       padding: 8px 12px;
       border-radius: 8px;
       position: relative;
+      white-space: nowrap;
     }
     .nav a:hover, .nav a.active {
       color: var(--purple);
@@ -475,9 +478,9 @@
       position: relative;
       z-index: 3;
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1.05fr 0.95fr;
       align-items: center;
-      gap: 40px;
+      gap: 36px;
     }
     .hero-eyebrow {
       display: inline-flex;
@@ -520,19 +523,21 @@
       gap: 16px;
       flex-wrap: wrap;
     }
-    .hero-visual { display: none; }
-    .hero-actions .btn {
-      padding: 12px 28px;
-      font-size: 15px;
-    }
+    .hero-visual { display: block; }
     .hero-visual-card {
       position: relative;
       background: #ffffff;
-      border-radius: var(--radius-xl);
-      padding: 18px;
-      box-shadow: 0 16px 40px rgba(52,37,154,0.12);
-      border: 1px solid rgba(221, 214, 254, 0.6);
+      border-radius: 20px;
+      padding: 0;
+      box-shadow: 0 16px 45px rgba(52,37,154,0.16);
+      border: 5px solid #ffffff;
       overflow: hidden;
+    }
+    .vatsalya-group-poster {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
     }
     .hero-quote-box {
       margin-top: 0;
@@ -2111,6 +2116,7 @@
         <a href="index.html" data-i18n="nav.home">Home</a>
         <a href="about-us.html" data-i18n="nav.about">About Us</a>
         <a href="vatsalya-group.html" class="active" data-i18n="nav.vatsalya">Vatsalya Group</a>
+        <a href="vatsalya-club.html" data-i18n="nav.club">Vatsalya Club</a>
         <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
         <a href="trustee.html" data-i18n="nav.trustee">Trustee</a>
         <a href="contact-us.html" data-i18n="nav.contact">Contact</a>
@@ -2142,6 +2148,7 @@
       <a class="mlink" href="index.html" data-i18n="nav.home">Home</a>
       <a class="mlink" href="about-us.html" data-i18n="nav.about">About Us</a>
       <a class="mlink active" href="vatsalya-group.html" data-i18n="nav.vatsalya">Vatsalya Group</a>
+      <a class="mlink" href="vatsalya-club.html" data-i18n="nav.club">Vatsalya Club</a>
       <a class="mlink" href="gallery.html" data-i18n="nav.gallery">Gallery</a>
       <a class="mlink" href="trustee.html" data-i18n="nav.trustee">Trustee</a>
       <a class="mlink" href="contact-us.html" data-i18n="nav.contact">Contact</a>
@@ -2177,9 +2184,7 @@
       </div>
       <div class="hero-visual reveal">
         <div class="hero-visual-card">
-          <div class="hero-quote-box">
-            <p data-i18n="hero.quote">“A community that cares, A society that grows.”</p>
-          </div>
+          <img src="vastyla gorup 1.png" alt="Vatsalya Group Infographic Poster" class="vatsalya-group-poster" loading="eager">
         </div>
       </div>
     </div>

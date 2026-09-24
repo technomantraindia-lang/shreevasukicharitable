@@ -122,21 +122,21 @@ html[lang="gu"] .btn{font-family:'Noto Sans Gujarati','DM Sans',sans-serif}
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
 .topbar .container, .topbar-inner{
-  max-width:1240px;margin-inline:auto;
-  padding-inline:24px;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  max-width:1440px;margin-inline:auto;
+  padding-inline:32px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:nowrap;
 }
 .topbar-left, .topbar-info{
-  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  display:flex;align-items:center;gap:20px;flex-wrap:nowrap;
 }
 .topbar-link, .topbar-info a, .topbar-info span{
   display:inline-flex;align-items:center;gap:6px;
-  color:#cbd5e1;font-size:13px;transition:color .2s;text-decoration:none;
+  color:#cbd5e1;font-size:13px;transition:color .2s;text-decoration:none;white-space:nowrap;
 }
 .topbar-link svg, .topbar-info svg{width:14px;height:14px;color:#a78bfa;flex-shrink:0}
 .topbar-link:hover, .topbar-info a:hover{color:#ffffff}
 .topbar-right{
-  display:flex;align-items:center;gap:18px;
+  display:flex;align-items:center;gap:18px;white-space:nowrap;
 }
 .topbar-tag{
   background:rgba(167, 139, 250, 0.18);
@@ -147,6 +147,7 @@ html[lang="gu"] .btn{font-family:'Noto Sans Gujarati','DM Sans',sans-serif}
   font-weight:600;
   border:1px solid rgba(167, 139, 250, 0.3);
   display:inline-block;
+  white-space:nowrap;
 }
 
 /* Header (Standardized) */
@@ -160,20 +161,21 @@ html[lang="gu"] .btn{font-family:'Noto Sans Gujarati','DM Sans',sans-serif}
 }
 .header.scrolled{box-shadow:0 10px 30px rgba(22,22,79,.08);background:rgba(255,255,255,.98)}
 .header-inner{
-  max-width:1240px;margin-inline:auto;
-  padding:12px 24px;
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  max-width:1440px;width:100%;margin-inline:auto;
+  padding:12px 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
 }
 .logo img{height:48px;width:auto;display:block}
-.nav{display:flex;align-items:center;gap:24px}
+.nav{display:flex;align-items:center;gap:18px;flex-wrap:nowrap}
 .nav > a{
   position:relative;display:inline-flex;align-items:center;
   font-size:14.5px;font-weight:600;color:#151838;
-  padding:8px 12px;border-radius:8px;transition:color .25s;text-decoration:none;
+  padding:8px 10px;border-radius:8px;transition:color .25s;text-decoration:none;
+  white-space:nowrap !important;flex-shrink:0;
 }
 .nav > a:hover,.nav > a.active{color:var(--purple)}
 .nav > a.active::after{
-  content:"";position:absolute;left:12px;right:12px;bottom:0;height:2.5px;
+  content:"";position:absolute;left:10px;right:10px;bottom:0;height:2.5px;
   border-radius:99px;background:var(--purple);
 }
 
@@ -949,6 +951,7 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--purple-2);outline
       <a href="index.html" class="active" data-i18n="nav.home">Home</a>
       <a href="about-us.html" data-i18n="nav.about">About Us</a>
       <a href="vatsalya-group.html" data-i18n="nav.vatsalya">Vatsalya Group</a>
+      <a href="vatsalya-club.html" data-i18n="nav.club">Vatsalya Club</a>
       <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
       <a href="trustee.html" data-i18n="nav.trustee">Trustee</a>
       <a href="contact-us.html" data-i18n="nav.contact">Contact</a>
@@ -980,6 +983,7 @@ a:focus-visible,button:focus-visible{outline:2.5px solid var(--purple-2);outline
     <a class="mlink active" href="index.html" data-i18n="nav.home">Home</a>
     <a class="mlink" href="about-us.html" data-i18n="nav.about">About Us</a>
     <a class="mlink" href="vatsalya-group.html" data-i18n="nav.vatsalya">Vatsalya Group</a>
+    <a class="mlink" href="vatsalya-club.html" data-i18n="nav.club">Vatsalya Club</a>
     <a class="mlink" href="gallery.html" data-i18n="nav.gallery">Gallery</a>
     <a class="mlink" href="trustee.html" data-i18n="nav.trustee">Trustee</a>
     <a class="mlink" href="contact-us.html" data-i18n="nav.contact">Contact</a>
@@ -1570,7 +1574,7 @@ const SLIDES = {
 const DICT = {
   en: {
     'top.phone':'+91 99740 63064','top.loc':'Ahmedabad, Gujarat, India','top.tag':'Vatsalya Group Support Initiative',
-    'nav.home':'Home','nav.about':'About Us','nav.work':'Our Work','nav.vatsalya':'Vatsalya Group','nav.trustee':'Trustee','nav.programs':'Our Programs','nav.involve':'Get Involved','nav.gallery':'Gallery','nav.news':'News','nav.contact':'Contact','nav.all':'All Programs',
+    'nav.home':'Home','nav.about':'About Us','nav.work':'Our Work','nav.vatsalya':'Vatsalya Group','nav.club':'Vatsalya Club','nav.trustee':'Trustee','nav.programs':'Our Programs','nav.involve':'Get Involved','nav.gallery':'Gallery','nav.news':'News','nav.contact':'Contact','nav.all':'All Programs',
     'svc.old':'Old Age Home','svc.gau':'Gau Seva','svc.hospital':'Hospital Food Service','svc.street':'Street Food Service','svc.edu':'Student Education Support',
     'cta.donate':'Donate Now','cta.meal':'Sponsor a Meal','cta.vol':'Become a Volunteer','cta.watch':'Watch Our Story','cta.more':'Learn More','cta.strip':'Join hands. Serve humanity.','cta.stripp':'Volunteer with us, sponsor a celebration, or simply visit Vatsalya Vrudhashram.',
     'hint.scroll':'Scroll','stat.elders':'Elders in Our Care','stat.meals':'Meals Served','stat.lives':'Lives Impacted','stat.students':'Students Supported','stat.cows':'Cows Under Care',
@@ -1617,7 +1621,7 @@ const DICT = {
   },
   gu: {
     'top.phone':'+91 99740 63064','top.loc':'અમદાવાદ, ગુજરાત, ભારત','top.tag':'વાત્સલ્ય ગ્રુપ સહાય પહેલ','top.tag':'વાત્સલ્ય ગ્રુપ સહાય પહેલ',
-    'nav.home':'હોમ','nav.about':'અમારા વિશે','nav.work':'અમારું કાર્ય','nav.vatsalya':'વાત્સલ્ય ગ્રુપ','nav.trustee':'ટ્રસ્ટી','nav.programs':'અમારા કાર્યક્રમો','nav.involve':'જોડાઓ','nav.gallery':'ગેલેરી','nav.news':'સમાચાર','nav.contact':'સંપર્ક','nav.all':'બધા કાર્યક્રમો',
+    'nav.home':'હોમ','nav.about':'અમારા વિશે','nav.work':'અમારું કાર્ય','nav.vatsalya':'વાત્સલ્ય ગ્રુપ','nav.club':'વાત્સલ્ય ક્લબ','nav.trustee':'ટ્રસ્ટી','nav.programs':'અમારા કાર્યક્રમો','nav.involve':'જોડાઓ','nav.gallery':'ગેલેરી','nav.news':'સમાચાર','nav.contact':'સંપર્ક','nav.all':'બધા કાર્યક્રમો',
     'svc.old':'વૃદ્ધાશ્રમ','svc.gau':'ગૌ સેવા','svc.hospital':'હોસ્પિટલ અન્નસેવા','svc.street':'શેરી અન્નસેવા','svc.edu':'વિદ્યાર્થી શિક્ષણ સહાય',
     'cta.donate':'દાન કરો','cta.meal':'ભોજન પ્રાયોજિત કરો','cta.vol':'સેવક બનો','cta.watch':'અમારી વાર્તા જુઓ','cta.more':'વધુ જાણો','cta.strip':'હાથ મિલાવો. માનવતાની સેવા કરો.','cta.stripp':'સેવક બનો, ઉજવણી પ્રાયોજિત કરો, અથવા વાત્સલ્ય વૃદ્ધાશ્રમની મુલાકાત લો.',
     'hint.scroll':'સ્ક્રોલ','stat.elders':'અમારી સંભાળમાં વડીલો','stat.meals':'પીરસાયેલા ભોજન','stat.lives':'પ્રભાવિત જીવન','stat.students':'સહાયિત વિદ્યાર્થીઓ','stat.cows':'સંભાળ હેઠળ ગાયો',

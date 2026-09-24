@@ -1,0 +1,2594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vatsalya Club | Shree Vasuki Charitable Trust</title>
+  <meta name="description" content="Vatsalya Club is a vibrant membership-based community that brings people together through meaningful connections, engaging activities, social gatherings and shared experiences.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       CSS VARIABLES & RESET
+       ========================================================= */
+    :root {
+      --navy: #151838;
+      --navy-deep: #0e1028;
+      --purple: #34259a;
+      --purple-dark: #241775;
+      --purple-light: #4b3bc5;
+      --purple-50: #f4f3ff;
+      --purple-100: #ede9fe;
+      --purple-200: #ddd6fe;
+      --indigo: #4338ca;
+      --blue-accent: #2563eb;
+      --cyan-accent: #0284c7;
+      --green-accent: #059669;
+      --green-light: #ecfdf5;
+      --green-border: #a7f3d0;
+      --orange-accent: #d97706;
+      --orange-light: #fffbeb;
+      --orange-border: #fde68a;
+      --blue-light: #eff6ff;
+      --blue-border: #bfdbfe;
+      --teal-accent: #0d9488;
+      --teal-light: #f0fdfa;
+      --teal-border: #99f6e4;
+      --accent-yellow: #f59e0b;
+      --gold: #d97706;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --bg-light: #f8faff;
+      --bg-card: #ffffff;
+      --border-subtle: #e2e8f0;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-md: 0 8px 24px rgba(52,37,154,0.08);
+      --shadow-lg: 0 16px 40px rgba(52,37,154,0.12);
+      --shadow-xl: 0 24px 50px rgba(52,37,154,0.16);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text-dark);
+      background-color: #fdfdfd;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* =========================================================
+       TOPBAR
+       ========================================================= */
+    .topbar {
+      background: var(--navy-deep);
+      color: #94a3b8;
+      font-size: 13px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1440px;
+      padding: 0 32px;
+    }
+    .topbar-info {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .topbar-info a, .topbar-info span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #cbd5e1;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .topbar-info a:hover {
+      color: #ffffff;
+    }
+    .topbar-info svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2.2;
+      color: #818cf8;
+    }
+    .topbar-tag {
+      background: rgba(79, 70, 229, 0.25);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      padding: 3px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    /* =========================================================
+       HEADER NAVIGATION
+       ========================================================= */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: var(--transition);
+    }
+    .header.scrolled {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 32px;
+      gap: 16px;
+    }
+    .logo img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: nowrap;
+    }
+    .nav a {
+      position: relative;
+      display: inline-flex !important;
+      align-items: center;
+      padding: 8px 10px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #151838;
+      white-space: nowrap !important;
+      border-radius: 8px;
+      transition: var(--transition);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav a:hover, .nav a.active {
+      color: var(--purple);
+      background: transparent;
+    }
+    .nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: -4px;
+      height: 2.5px;
+      border-radius: 99px;
+      background: var(--purple);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: #f1f5f9;
+      border-radius: var(--radius-full);
+      padding: 3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .lang-switch button {
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #64748b;
+      border-radius: var(--radius-full);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .lang-switch button.active {
+      background: var(--purple);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(52,37,154,0.25);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      transition: var(--transition);
+      cursor: pointer;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--purple);
+      color: #ffffff;
+      padding: 11px 24px;
+      font-size: 14px;
+      box-shadow: 0 4px 16px rgba(52,37,154,0.28);
+    }
+    .btn-primary:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(52,37,154,0.38);
+    }
+    .btn-whatsapp {
+      background: #ffffff;
+      color: #059669;
+      border: 1.5px solid #a7f3d0;
+      padding: 10px 22px;
+      font-size: 14px;
+      box-shadow: 0 2px 10px rgba(5,150,105,0.08);
+    }
+    .btn-whatsapp:hover {
+      background: #ecfdf5;
+      border-color: #059669;
+      color: #047857;
+      transform: translateY(-2px);
+    }
+    .search-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #475569;
+      background: #f1f5f9;
+      transition: var(--transition);
+    }
+    .search-btn:hover {
+      background: var(--purple-50);
+      color: var(--purple);
+    }
+    .search-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+    .hamburger span {
+      width: 100%;
+      height: 2.5px;
+      background-color: var(--navy);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Mobile Menu Drawer */
+    .menu-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1001;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .menu-backdrop.show {
+      display: block;
+      opacity: 1;
+    }
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      height: 100vh;
+      background: #ffffff;
+      z-index: 1002;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -8px 0 30px rgba(0,0,0,0.15);
+      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-menu.open {
+      right: 0;
+    }
+    .mobile-menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f1f5f9;
+      margin-bottom: 20px;
+    }
+    .mobile-menu-header img {
+      height: 38px;
+    }
+    .mobile-menu-close {
+      font-size: 24px;
+      color: #64748b;
+    }
+    .mobile-menu nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .mobile-menu nav a {
+      padding: 12px 16px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #334155;
+      border-radius: 10px;
+    }
+    .mobile-menu nav a.active, .mobile-menu nav a:hover {
+      background: var(--purple-50);
+      color: var(--purple);
+    }
+
+    /* =========================================================
+       HERO SECTION
+       ========================================================= */
+    .club-hero {
+      position: relative;
+      background: linear-gradient(135deg, #f8faff 0%, #edf2ff 50%, #f4f3ff 100%);
+      padding: 60px 0 70px;
+      overflow: hidden;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .club-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple-100);
+      color: var(--purple);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1px solid var(--purple-200);
+    }
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .hero-desc {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.7;
+      max-width: 580px;
+      margin-bottom: 30px;
+    }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .hero-pills {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .hero-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 14px rgba(52,37,154,0.06);
+      border: 1px solid #e2e8f0;
+    }
+    .hero-pill-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--purple-50);
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-pill-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    .hero-pill-text strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .hero-pill-text span {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Hero Right Image Frame */
+    .hero-image-wrap {
+      position: relative;
+    }
+    .hero-image-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(52,37,154,0.18);
+      border: 6px solid #ffffff;
+    }
+    .hero-image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .handwriting-tag {
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      font-family: 'Caveat', cursive;
+      font-size: 30px;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75), 0 0 20px rgba(0, 0, 0, 0.5);
+      transform: rotate(-1deg);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* =========================================================
+       SECTION COMMON STYLES
+       ========================================================= */
+    .section {
+      padding: 76px 0;
+    }
+    .section-tint {
+      background: linear-gradient(180deg, #f8faff 0%, #f1f5f9 100%);
+    }
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 52px;
+    }
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.65;
+    }
+
+    /* =========================================================
+       SECTION 2: MORE THAN A CLUB
+       ========================================================= */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 32px 24px;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--purple-200);
+    }
+    .feature-icon-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--purple-50);
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      transition: var(--transition);
+    }
+    .feature-card:hover .feature-icon-box {
+      background: var(--purple);
+      color: #ffffff;
+      transform: scale(1.08);
+    }
+    .feature-icon-box svg {
+      width: 28px;
+      height: 28px;
+    }
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .feature-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       SECTION 3: HOW VATSALYA CLUB WORKS (5 STEPS)
+       ========================================================= */
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+    .step-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 30px 20px 24px;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: var(--transition);
+    }
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--purple-200);
+    }
+    .step-num-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--purple);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 10px rgba(52,37,154,0.3);
+    }
+    .step-icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: var(--purple-50);
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px auto 18px;
+    }
+    .step-icon-box svg {
+      width: 26px;
+      height: 26px;
+    }
+    .step-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .step-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* =========================================================
+       SECTION 4: CLUB ACTIVITIES (8 CARDS)
+       ========================================================= */
+    .activity-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 28px 20px 24px;
+      text-align: center;
+      border: 1px solid #eef2ff;
+      box-shadow: 0 4px 16px rgba(52,37,154,0.04);
+      transition: var(--transition);
+    }
+    .activity-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(52,37,154,0.1);
+      border-color: var(--purple-200);
+    }
+    .activity-icon, .why-icon, .pillar-icon, .feature-icon-box {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      transition: var(--transition);
+    }
+    .activity-card:hover .activity-icon, .why-card:hover .why-icon, .pillar-card:hover .pillar-icon, .feature-card:hover .feature-icon-box {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .activity-icon svg, .why-icon svg, .pillar-icon svg, .feature-icon-box svg {
+      width: 26px;
+      height: 26px;
+      stroke-width: 2.2;
+    }
+    .badge-indigo, .icon-indigo { background: #e0e7ff !important; color: #4338ca !important; }
+    .badge-violet, .icon-violet { background: #f3e8ff !important; color: #7c3aed !important; }
+    .badge-rose, .icon-rose { background: #ffe4e6 !important; color: #e11d48 !important; }
+    .badge-pink, .icon-pink { background: #fce7f3 !important; color: #db2777 !important; }
+    .badge-blue, .icon-blue { background: #dbeafe !important; color: #2563eb !important; }
+    .badge-teal, .icon-teal { background: #ccfbf1 !important; color: #0d9488 !important; }
+    .badge-cyan, .icon-cyan { background: #e0f2fe !important; color: #0284c7 !important; }
+    .badge-emerald, .icon-emerald, .icon-green { background: #d1fae5 !important; color: #059669 !important; }
+    .badge-amber, .icon-amber, .icon-gold { background: #fef3c7 !important; color: #d97706 !important; }
+    .badge-magenta, .icon-magenta { background: #fae8ff !important; color: #c026d3 !important; }
+
+    .activity-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .activity-card p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* =========================================================
+       SECTION 5: THE VATSALYA CLUB EXPERIENCE (HORIZONTAL JOURNEY)
+       ========================================================= */
+    .journey-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .journey-item {
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .journey-circle {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: #ede9fe;
+      color: #4338ca;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      box-shadow: 0 0 0 10px rgba(99, 102, 241, 0.12), 0 8px 24px rgba(67, 56, 202, 0.1);
+      border: 4px solid #ffffff;
+      transition: var(--transition);
+    }
+    .journey-item:hover .journey-circle {
+      background: #4338ca;
+      color: #ffffff;
+      box-shadow: 0 0 0 12px rgba(99, 102, 241, 0.22), 0 12px 30px rgba(67, 56, 202, 0.25);
+      transform: translateY(-4px) scale(1.05);
+    }
+    .journey-circle svg {
+      width: 32px;
+      height: 32px;
+      stroke-width: 2.2;
+    }
+    .journey-item h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .journey-item p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .journey-arrow {
+      color: #818cf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 28px;
+      opacity: 0.85;
+      flex-shrink: 0;
+    }
+    .journey-arrow svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* =========================================================
+       SECTION 6: MEMBER PARTICIPATION (CHECKLIST)
+       ========================================================= */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .check-item-card {
+      background: #ffffff;
+      border: 1px solid #e9edf5;
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: all 0.25s ease;
+    }
+    .check-item-card:hover {
+      border-color: #cbd5e1;
+      background: #ffffff;
+      box-shadow: 0 6px 16px rgba(52, 37, 154, 0.06);
+      transform: translateY(-2px);
+    }
+    .check-icon-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #ece8ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .check-icon-inner {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #4f36e3;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(79, 54, 227, 0.2);
+    }
+    .check-icon-inner svg {
+      width: 13px;
+      height: 13px;
+      stroke: #ffffff;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .check-item-card span {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #2c3558;
+      line-height: 1.35;
+    }
+
+    /* =========================================================
+       SECTION 7: WHY JOIN VATSALYA CLUB (6 PILLARS)
+       ========================================================= */
+    .grid-6 {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .why-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 30px 16px 26px;
+      text-align: center;
+      border: 1px solid #e9edf5;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(52, 37, 154, 0.08);
+      border-color: #cbd5e1;
+    }
+    .why-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+    .why-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke-width: 2.2;
+    }
+    .why-icon.icon-indigo {
+      background: #eef2ff;
+      color: #4338ca;
+    }
+    .why-icon.icon-violet {
+      background: #f3e8ff;
+      color: #9333ea;
+    }
+    .why-icon.icon-rose {
+      background: #ffe4e6;
+      color: #f43f5e;
+    }
+    .why-icon.icon-blue {
+      background: #e0f2fe;
+      color: #0284c7;
+    }
+    .why-icon.icon-cyan {
+      background: #e0f7fa;
+      color: #00acc1;
+    }
+    .why-icon.icon-magenta {
+      background: #fae8ff;
+      color: #c026d3;
+    }
+    .why-card:hover .why-icon {
+      transform: scale(1.1);
+    }
+    .why-card h3 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #1e1b4b;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .why-card p {
+      font-size: 12.5px;
+      color: #64748b;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* =========================================================
+       SECTION 8: OUR CLUB PILLARS + VISION & MISSION
+       ========================================================= */
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .pillar-card {
+      background: transparent;
+      border-radius: 0;
+      padding: 10px 12px;
+      text-align: center;
+      border: none;
+      box-shadow: none;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .pillar-card:hover {
+      transform: translateY(-4px);
+    }
+    .pillar-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: #ece8ff;
+      color: #4f36e3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+    .pillar-card:hover .pillar-icon {
+      transform: scale(1.06);
+      background: #e1d9ff;
+    }
+    .pillar-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke-width: 2.2;
+    }
+    .pillar-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1e1b4b;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .pillar-card p {
+      font-size: 12.5px;
+      color: #64748b;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* Vision & Mission Split Cards */
+    .vm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .vm-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 28px 30px;
+      border: 1px solid #e9edf5;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+    .vm-card:hover {
+      box-shadow: 0 8px 24px rgba(52, 37, 154, 0.06);
+      border-color: #cbd5e1;
+    }
+    .vm-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .vm-header-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #ece8ff;
+      color: #4f36e3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .vm-header-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2.2;
+    }
+    .vm-header h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1e1b4b;
+      margin: 0;
+    }
+    .vm-vision-content {
+      display: grid;
+      grid-template-columns: 1fr 165px;
+      gap: 18px;
+      align-items: center;
+    }
+    .vm-vision-content p {
+      font-size: 13.5px;
+      color: #475569;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .vm-vision-img {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 125px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .vm-vision-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .mission-checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 20px;
+    }
+    .mission-check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #2c3558;
+    }
+    .mission-check-item svg {
+      width: 16px;
+      height: 16px;
+      stroke: #4f36e3;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* =========================================================
+       SECTION 9: BECOME PART OF VATSALYA CLUB (CTA CARD)
+       ========================================================= */
+    .cta-big-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f4f3ff 100%);
+      border-radius: 28px;
+      padding: 48px;
+      border: 1px solid var(--purple-200);
+      box-shadow: var(--shadow-xl);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .cta-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .cta-card-subtitle {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 16px;
+    }
+    .cta-card-desc {
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .cta-disclaimer {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+    .cta-img-box {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(52,37,154,0.15);
+    }
+    .cta-img-box img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+    .handwriting-accent-2 {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-family: 'Caveat', cursive;
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+
+    /* =========================================================
+       SECTION 10: MEMBERSHIP GUIDELINES + PROMISE CARD
+       ========================================================= */
+    .guidelines-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 28px;
+    }
+    .guide-box {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 32px;
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
+    }
+    .guide-title-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .guide-title-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--purple-50);
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .guide-title-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+    .guide-title-row h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .guide-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .guide-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.6;
+    }
+    .guide-list-item svg {
+      width: 18px;
+      height: 18px;
+      color: var(--purple);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .promise-card {
+      background: linear-gradient(135deg, var(--purple-50) 0%, var(--purple-100) 100%);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      border: 1px solid var(--purple-200);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .promise-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(52,37,154,0.12);
+    }
+    .promise-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+    .promise-card p {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    /* =========================================================
+       SECTION 11: BOTTOM BANNER - JOIN VATSALYA CLUB
+       ========================================================= */
+    .bottom-join-banner {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+      color: #ffffff;
+      padding: 70px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .bottom-banner-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .bottom-banner-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .bottom-banner-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #a5b4fc;
+      margin-bottom: 16px;
+    }
+    .bottom-banner-desc {
+      font-size: 15px;
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+    .bottom-banner-ctas {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .bottom-banner-img {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+      border: 4px solid rgba(255,255,255,0.15);
+    }
+    .bottom-banner-img img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+    .handwriting-accent-3 {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-family: 'Caveat', cursive;
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .footer {
+      background: var(--navy-deep);
+      color: #cbd5e1;
+      padding: 60px 0 24px;
+      font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand img {
+      height: 50px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-size: 13.5px;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col a {
+      color: #94a3b8;
+      font-size: 13.5px;
+    }
+    .footer-col a:hover {
+      color: #ffffff;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    /* =========================================================
+       JOIN MODAL
+       ========================================================= */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.7);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .modal-card {
+      background: #ffffff;
+      border-radius: 24px;
+      max-width: 520px;
+      width: 100%;
+      padding: 36px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+      position: relative;
+      animation: modalFadeIn 0.3s ease;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .modal-header h3 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .modal-header p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(52,37,154,0.15);
+    }
+
+    /* =========================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================= */
+    @media (max-width: 1024px) {
+      .grid-4, .grid-5, .grid-6 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .checklist-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .vm-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .club-hero-grid, .cta-big-card, .guidelines-grid, .bottom-banner-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 38px;
+      }
+      .grid-4, .grid-5, .grid-6 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .journey-row {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .journey-arrow {
+        transform: rotate(90deg);
+      }
+      .checklist-grid {
+        grid-template-columns: 1fr;
+      }
+      .vm-vision-content {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .topbar-info span:not(:first-child) {
+        display: none;
+      }
+    }
+    @media (max-width: 480px) {
+      .grid-4, .grid-5, .grid-6 {
+        grid-template-columns: 1fr;
+      }
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       TOPBAR
+       ========================================================= -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <a href="tel:+919904050044" aria-label="Helpline number">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span data-i18n="top.phone">+91 99040 50044</span>
+        </a>
+        <a href="mailto:info@shreevasukicharitabletrust.org" aria-label="Email address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@shreevasukicharitabletrust.org</span>
+        </a>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="top.loc">Ahmedabad, Gujarat, India</span>
+        </span>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-tag" data-i18n="top.tag">Together for a Better Tomorrow</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       HEADER NAVIGATION
+       ========================================================= -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Shree Vasuki Charitable Trust — Home">
+        <img src="vasuk logo.png" alt="Shree Vasuki Charitable Trust Logo">
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about-us.html" data-i18n="nav.about">About Us</a>
+        <a href="vatsalya-group.html" data-i18n="nav.vatsalya">Vatsalya Group</a>
+        <a href="vatsalya-club.html" class="active" data-i18n="nav.club">Vatsalya Club</a>
+        <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+        <a href="trustee.html" data-i18n="nav.trustee">Trustee</a>
+        <a href="contact-us.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button type="button" class="active" data-lang="en">EN</button>
+          <button type="button" data-lang="gu">ગુ</button>
+        </div>
+        <button type="button" class="btn btn-primary open-join-modal" data-i18n="hero.joinBtn">Become a Member</button>
+        <button class="search-btn" type="button" aria-label="Search website">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+  <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <img src="vasuk logo.png" alt="Shree Vasuki Trust Logo">
+      <button type="button" class="mobile-menu-close" id="mobileMenuCloseBtn" aria-label="Close menu">✕</button>
+    </div>
+    <nav>
+      <a class="mlink" href="index.html" data-i18n="nav.home">Home</a>
+      <a class="mlink" href="about-us.html" data-i18n="nav.about">About Us</a>
+      <a class="mlink" href="vatsalya-group.html" data-i18n="nav.vatsalya">Vatsalya Group</a>
+      <a class="mlink active" href="vatsalya-club.html" data-i18n="nav.club">Vatsalya Club</a>
+      <a class="mlink" href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a class="mlink" href="trustee.html" data-i18n="nav.trustee">Trustee</a>
+      <a class="mlink" href="contact-us.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="mm-actions" style="margin-top:20px; display:flex; flex-direction:column; gap:10px;">
+      <button type="button" class="btn btn-primary open-join-modal" style="justify-content:center;" data-i18n="hero.joinBtn">Become a Member</button>
+      <a class="btn btn-whatsapp" href="https://wa.me/919904050044" style="justify-content:center;">Connect via WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       HERO SECTION
+       ========================================================= -->
+  <section class="club-hero">
+    <div class="container club-hero-grid">
+      <div class="hero-left">
+        <span class="hero-eyebrow" data-i18n="hero.badge">Community Membership</span>
+        <h1 class="hero-title" data-i18n="hero.title">Vatsalya Club</h1>
+        <h2 class="hero-subtitle" data-i18n="hero.sub">Connect. Participate. Belong.</h2>
+        <p class="hero-desc" data-i18n="hero.desc">
+          Vatsalya Club is a vibrant membership-based community that brings people together through meaningful connections, engaging activities, social gatherings and shared experiences.
+        </p>
+        <div class="hero-ctas">
+          <button type="button" class="btn btn-primary open-join-modal" data-i18n="hero.joinBtn">Become a Member &rarr;</button>
+          <a href="https://wa.me/919904050044" target="_blank" rel="noopener" class="btn btn-whatsapp">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.146 4.187 4.269-1.119z"/></svg>
+            <span data-i18n="hero.waBtn">Connect via WhatsApp</span>
+          </a>
+        </div>
+        <div class="hero-pills">
+          <div class="hero-pill">
+            <div class="hero-pill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="hero-pill-text">
+              <strong data-i18n="pill1.t">People</strong>
+              <span data-i18n="pill1.s">Community</span>
+            </div>
+          </div>
+          <div class="hero-pill">
+            <div class="hero-pill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div class="hero-pill-text">
+              <strong data-i18n="pill2.t">Events</strong>
+              <span data-i18n="pill2.s">Activities</span>
+            </div>
+          </div>
+          <div class="hero-pill">
+            <div class="hero-pill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="hero-pill-text">
+              <strong data-i18n="pill3.t">Stronger</strong>
+              <span data-i18n="pill3.s">Belonging</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-image-wrap">
+          <div class="hero-image-card">
+            <img src="vataslya club.png" alt="Vatsalya Club Banner Poster" loading="eager">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 2: MORE THAN A CLUB. A COMMUNITY.
+       ========================================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="sec2.title">More Than a Club. A Community.</h2>
+        <p class="section-subtitle" data-i18n="sec2.sub">
+          Vatsalya Club is built on shared values, friendships and a spirit of togetherness. It's a place to meet new people, take part in meaningful activities and create lasting memories.
+        </p>
+      </div>
+      <div class="grid-4">
+        <div class="feature-card">
+          <div class="feature-icon-box icon-indigo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3 data-i18n="sec2.c1t">Connect</h3>
+          <p data-i18n="sec2.c1p">Meet new people and build lasting relationships within a like-minded community.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-box icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 data-i18n="sec2.c2t">Participate</h3>
+          <p data-i18n="sec2.c2p">Be part of gatherings, cultural programs, activities and special events.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-box icon-gold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 data-i18n="sec2.c3t">Experience</h3>
+          <p data-i18n="sec2.c3p">Enjoy memorable activities and unique experiences throughout the year.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-box icon-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <h3 data-i18n="sec2.c4t">Grow Together</h3>
+          <p data-i18n="sec2.c4p">Share ideas, knowledge and experiences, and discover new opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 3: HOW VATSALYA CLUB WORKS (5 STEPS)
+       ========================================================= -->
+  <section class="section section-tint">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="sec3.title">How Vatsalya Club Works</h2>
+        <p class="section-subtitle" data-i18n="sec3.sub">
+          A simple membership journey to help you connect, participate and make the most of your club experience.
+        </p>
+      </div>
+      <div class="grid-5">
+        <div class="step-card">
+          <div class="step-num-badge">01</div>
+          <div class="step-icon-box icon-indigo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="17" y1="11" x2="23" y2="11"/></svg>
+          </div>
+          <h3 data-i18n="sec3.s1t">Become a Member</h3>
+          <p data-i18n="sec3.s1p">Complete the registration process to join Vatsalya Club.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num-badge">02</div>
+          <div class="step-icon-box icon-violet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 data-i18n="sec3.s2t">Join the Community</h3>
+          <p data-i18n="sec3.s2p">Get access to our vibrant and welcoming members' community.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num-badge">03</div>
+          <div class="step-icon-box icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 data-i18n="sec3.s3t">Participate in Club Activities</h3>
+          <p data-i18n="sec3.s3p">Take part in various events, programs and gatherings.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num-badge">04</div>
+          <div class="step-icon-box icon-rose">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 data-i18n="sec3.s4t">Build Meaningful Connections</h3>
+          <p data-i18n="sec3.s4p">Meet like-minded people and create lasting relationships.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num-badge">05</div>
+          <div class="step-icon-box icon-amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 data-i18n="sec3.s5t">Stay Active</h3>
+          <p data-i18n="sec3.s5p">Keep participating and stay informed about upcoming opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 4: CLUB ACTIVITIES (8 CARDS)
+       ========================================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="sec4.title">Club Activities</h2>
+        <p class="section-subtitle" data-i18n="sec4.sub">A wide range of activities for all age groups and interests.</p>
+      </div>
+      <div class="grid-4">
+        <div class="activity-card">
+          <div class="activity-icon icon-indigo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 data-i18n="sec4.a1t">Social Gatherings</h3>
+          <p data-i18n="sec4.a1p">Get together, meet and build friendships.</p>
+        </div>
+        <div class="activity-card">
+          <div class="activity-icon icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <h3 data-i18n="sec4.a2t">Cultural Programs</h3>
+          <p data-i18n="sec4.a2p">Celebrate our culture and heritage.</p>
+        </div>
+        <div class="activity-card">
+          <div class="activity-icon icon-violet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="19" cy="11" r="3"/></svg>
+          </div>
+          <h3 data-i18n="sec4.a3t">Family Activities</h3>
+          <p data-i18n="sec4.a3p">Fun activities for members and their families.</p>
+        </div>
+        <div class="activity-card">
+          <div class="activity-icon icon-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </div>
+          <h3 data-i18n="sec4.a4t">Networking Meets</h3>
+          <p data-i18n="sec4.a4p">Connect with professionals and like-minded members.</p>
+        </div>
+        <div class="activity-card">
+          <div class="activity-icon icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 data-i18n="sec4.a5t">Educational Sessions</h3>
+          <p data-i18n="sec4.a5p">Learn, share and grow together.</p>
+        </div>
+        <div class="activity-card">
+          <div class="activity-icon icon-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <h3 data-i18n="sec4.a6t">Recreational Activities</h3>
+          <p data-i18n="sec4.a6p">Enjoy leisure and wellness activities.</p>
+        </div>
+        <div class="activity-card">
+          <div class="activity-icon icon-pink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          </div>
+          <h3 data-i18n="sec4.a7t">Celebrations & Special Events</h3>
+          <p data-i18n="sec4.a7p">Mark special occasions together.</p>
+        </div>
+        <div class="activity-card">
+          <div class="activity-icon icon-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 data-i18n="sec4.a8t">Community Engagement Programs</h3>
+          <p data-i18n="sec4.a8p">Give back to society through meaningful initiatives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 5: THE VATSALYA CLUB EXPERIENCE (JOURNEY)
+       ========================================================= -->
+  <section class="section section-tint">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="sec5.title">The Vatsalya Club Experience</h2>
+        <p class="section-subtitle" data-i18n="sec5.sub">A journey of meaningful connections, shared moments and lifelong friendships.</p>
+      </div>
+      <div class="journey-row">
+        <div class="journey-item">
+          <div class="journey-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="19" cy="7" r="3"/></svg>
+          </div>
+          <h3 data-i18n="sec5.j1t">Meet</h3>
+          <p data-i18n="sec5.j1p">Meet new people</p>
+        </div>
+        <div class="journey-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="journey-item">
+          <div class="journey-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 data-i18n="sec5.j2t">Connect</h3>
+          <p data-i18n="sec5.j2p">Build relationships</p>
+        </div>
+        <div class="journey-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="journey-item">
+          <div class="journey-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3" ry="3"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="8" cy="14" r="1.2" fill="currentColor"/><circle cx="12" cy="14" r="1.2" fill="currentColor"/><circle cx="16" cy="14" r="1.2" fill="currentColor"/><circle cx="8" cy="18" r="1.2" fill="currentColor"/><circle cx="12" cy="18" r="1.2" fill="currentColor"/><circle cx="16" cy="18" r="1.2" fill="currentColor"/></svg>
+          </div>
+          <h3 data-i18n="sec5.j3t">Participate</h3>
+          <p data-i18n="sec5.j3p">Join activities & events</p>
+        </div>
+        <div class="journey-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="journey-item">
+          <div class="journey-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 data-i18n="sec5.j4t">Celebrate</h3>
+          <p data-i18n="sec5.j4p">Create joyful memories</p>
+        </div>
+        <div class="journey-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="journey-item">
+          <div class="journey-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/><path d="M4 11l5-5 4 4 6-6"/></svg>
+          </div>
+          <h3 data-i18n="sec5.j5t">Grow Together</h3>
+          <p data-i18n="sec5.j5p">A stronger, happier community</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 6: MEMBER PARTICIPATION
+       ========================================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="sec6.title">Member Participation</h2>
+        <p class="section-subtitle" data-i18n="sec6.sub">Our club thrives through the active involvement of our members. Here's how you can contribute:</p>
+      </div>
+      <div class="checklist-grid">
+        <div class="check-item-card">
+          <div class="check-icon-badge">
+            <div class="check-icon-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+          <span data-i18n="sec6.i1">Participate in Club programs and gatherings</span>
+        </div>
+        <div class="check-item-card">
+          <div class="check-icon-badge">
+            <div class="check-icon-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+          <span data-i18n="sec6.i2">Maintain respectful and positive interaction</span>
+        </div>
+        <div class="check-item-card">
+          <div class="check-icon-badge">
+            <div class="check-icon-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+          <span data-i18n="sec6.i3">Introduce like-minded new members</span>
+        </div>
+        <div class="check-item-card">
+          <div class="check-icon-badge">
+            <div class="check-icon-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+          <span data-i18n="sec6.i4">Share ideas for future Club activities</span>
+        </div>
+        <div class="check-item-card">
+          <div class="check-icon-badge">
+            <div class="check-icon-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+          <span data-i18n="sec6.i5">Keep membership details updated</span>
+        </div>
+        <div class="check-item-card">
+          <div class="check-icon-badge">
+            <div class="check-icon-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+          <span data-i18n="sec6.i6">Support smooth coordination of Club programs</span>
+        </div>
+        <div class="check-item-card">
+          <div class="check-icon-badge">
+            <div class="check-icon-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+          <span data-i18n="sec6.i7">Follow the Club's membership guidelines</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 7: WHY JOIN VATSALYA CLUB? (6 PILLARS)
+       ========================================================= -->
+  <section class="section section-tint">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="sec7.title">Why Join Vatsalya Club?</h2>
+        <p class="section-subtitle" data-i18n="sec7.sub">Be part of a welcoming community and enjoy a host of benefits.</p>
+      </div>
+      <div class="grid-6">
+        <div class="why-card">
+          <div class="why-icon icon-indigo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 data-i18n="sec7.w1t">Strong Community Network</h3>
+          <p data-i18n="sec7.w1p">Build lasting friendships and meaningful connections.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon icon-violet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 data-i18n="sec7.w2t">Exclusive Member Activities</h3>
+          <p data-i18n="sec7.w2p">Access to special events and member-only programs.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon icon-rose">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 data-i18n="sec7.w3t">Family & Social Engagement</h3>
+          <p data-i18n="sec7.w3p">Activities for all age groups and family members.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </div>
+          <h3 data-i18n="sec7.w4t">Networking Opportunities</h3>
+          <p data-i18n="sec7.w4p">Meet professionals and expand your network.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon icon-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 data-i18n="sec7.w5t">Learning & Interaction</h3>
+          <p data-i18n="sec7.w5p">Gain new knowledge through sessions and group interactions.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon icon-magenta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          </div>
+          <h3 data-i18n="sec7.w6t">Memorable Experiences</h3>
+          <p data-i18n="sec7.w6p">Create beautiful memories with a like-minded community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 8: OUR CLUB PILLARS + VISION & MISSION
+       ========================================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="sec8.title">Our Club Pillars</h2>
+        <p class="section-subtitle" data-i18n="sec8.sub">The core values that make Vatsalya Club special.</p>
+      </div>
+      <div class="grid-5">
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="17" y1="11" x2="23" y2="11"/></svg>
+          </div>
+          <h3 data-i18n="sec8.p1t">Connection</h3>
+          <p data-i18n="sec8.p1p">Bringing people closer</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 data-i18n="sec8.p2t">Community</h3>
+          <p data-i18n="sec8.p2p">A supportive family</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="8" cy="14" r="1" fill="currentColor"/><circle cx="12" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/><circle cx="8" cy="18" r="1" fill="currentColor"/><circle cx="12" cy="18" r="1" fill="currentColor"/><circle cx="16" cy="18" r="1" fill="currentColor"/></svg>
+          </div>
+          <h3 data-i18n="sec8.p3t">Participation</h3>
+          <p data-i18n="sec8.p3p">Active involvement</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 data-i18n="sec8.p4t">Experience</h3>
+          <p data-i18n="sec8.p4p">Meaningful moments</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/><path d="M4 11l5-5 4 4 6-6"/><path d="M15 4h4v4"/></svg>
+          </div>
+          <h3 data-i18n="sec8.p5t">Growth</h3>
+          <p data-i18n="sec8.p5p">Together towards a brighter future</p>
+        </div>
+      </div>
+
+      <!-- Vision & Mission Split Cards -->
+      <div class="vm-grid">
+        <div class="vm-card">
+          <div class="vm-header">
+            <div class="vm-header-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3 data-i18n="vm.vTitle">Our Vision</h3>
+          </div>
+          <div class="vm-vision-content">
+            <p data-i18n="vm.vDesc">
+              Create a respected and vibrant membership community where people connect, participate and build meaningful relationships through shared experiences.
+            </p>
+            <div class="vm-vision-img">
+              <img src="image/73.jpeg" alt="Our Vision - Community" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <div class="vm-card">
+          <div class="vm-header">
+            <div class="vm-header-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <h3 data-i18n="vm.mTitle">Our Mission</h3>
+          </div>
+          <div class="mission-checklist">
+            <div class="mission-check-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="vm.m1">Community Networking</span>
+            </div>
+            <div class="mission-check-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="vm.m2">Knowledge Sharing</span>
+            </div>
+            <div class="mission-check-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="vm.m3">Social Interaction</span>
+            </div>
+            <div class="mission-check-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="vm.m4">Recreation & Events</span>
+            </div>
+            <div class="mission-check-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="vm.m5">Family Engagement</span>
+            </div>
+            <div class="mission-check-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="vm.m6">Member Experiences</span>
+            </div>
+            <div class="mission-check-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="vm.m7">Cultural Activities</span>
+            </div>
+            <div class="mission-check-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="vm.m8">Community Development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 9: BECOME PART OF VATSALYA CLUB (CTA CARD)
+       ========================================================= -->
+  <section class="section section-tint">
+    <div class="container">
+      <div class="cta-big-card">
+        <div class="cta-left">
+          <h2 class="cta-card-title" data-i18n="sec9.title">Become Part of Vatsalya Club</h2>
+          <h3 class="cta-card-subtitle" data-i18n="sec9.sub">One Club. Many Connections. Countless Experiences.</h3>
+          <p class="cta-card-desc" data-i18n="sec9.desc">
+            Join Vatsalya Club and be part of a growing community that celebrates relationships, culture, learning and togetherness. Discover new friends, exciting activities and memorable experiences throughout the year.
+          </p>
+          <div class="hero-ctas" style="margin-bottom:12px;">
+            <button type="button" class="btn btn-primary open-join-modal" data-i18n="hero.joinBtn">Become a Member &rarr;</button>
+          </div>
+          <p class="cta-disclaimer" data-i18n="sec9.disc">Benefits and participation opportunities may vary according to programs and guidelines.</p>
+        </div>
+        <div class="cta-right">
+          <div class="cta-img-box">
+            <div class="handwriting-accent-2">Stronger Together &#9825;</div>
+            <img src="image/70.jpeg" alt="Stronger Together Community" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 10: MEMBERSHIP GUIDELINES + PROMISE CARD
+       ========================================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="guidelines-grid">
+        <div class="guide-box">
+          <div class="guide-title-row">
+            <div class="guide-title-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3 data-i18n="sec10.title">Membership Guidelines</h3>
+          </div>
+          <div class="guide-list">
+            <div class="guide-list-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec10.g1">Vatsalya Club is a membership-based community.</span>
+            </div>
+            <div class="guide-list-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec10.g2">Membership is subject to registration requirements and applicable fee.</span>
+            </div>
+            <div class="guide-list-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec10.g3">Respectful behaviour is expected from all members during Club activities and events.</span>
+            </div>
+            <div class="guide-list-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec10.g4">Events may have separate registration, capacity, eligibility or charges.</span>
+            </div>
+            <div class="guide-list-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec10.g5">The Club may modify activities and benefits according to operational requirements.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="promise-card">
+          <div class="promise-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <p data-i18n="sec10.promise">A positive, respectful and inclusive community for everyone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 11: BOTTOM BANNER - JOIN VATSALYA CLUB
+       ========================================================= -->
+  <section class="bottom-join-banner">
+    <div class="container bottom-banner-grid">
+      <div class="bottom-banner-left">
+        <h2 class="bottom-banner-title" data-i18n="sec11.title">Join Vatsalya Club</h2>
+        <h3 class="bottom-banner-subtitle" data-i18n="sec11.sub">Your Community. Your Connections. Your Club.</h3>
+        <p class="bottom-banner-desc" data-i18n="sec11.desc">
+          Complete your membership registration today or get in touch with us for membership plans, benefits and upcoming activities.
+        </p>
+        <div class="bottom-banner-ctas">
+          <button type="button" class="btn btn-primary open-join-modal" data-i18n="hero.joinBtn">Become a Member &rarr;</button>
+          <a href="https://wa.me/919904050044" target="_blank" rel="noopener" class="btn btn-whatsapp" style="background:rgba(255,255,255,0.1); color:#ffffff; border-color:rgba(255,255,255,0.25);">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.146 4.187 4.269-1.119z"/></svg>
+            <span data-i18n="hero.waBtn">Connect via WhatsApp</span>
+          </a>
+        </div>
+      </div>
+      <div class="bottom-banner-right">
+        <div class="bottom-banner-img">
+          <div class="handwriting-accent-3">Community Lives Here &#9825;</div>
+          <img src="image/75.jpeg" alt="Community Lives Here" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="vasuk-logo-light.png" alt="Shree Vasuki Trust Light Logo">
+          <p data-i18n="foot.about">
+            Connecting People. Creating Experiences. Growing Together. A membership community built around connection, participation and shared experiences.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="foot.quick">Quick Links</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about-us.html" data-i18n="nav.about">About Us</a></li>
+            <li><a href="vatsalya-group.html" data-i18n="nav.vatsalya">Vatsalya Group</a></li>
+            <li><a href="vatsalya-club.html" data-i18n="nav.club">Vatsalya Club</a></li>
+            <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="trustee.html" data-i18n="nav.trustee">Trustee</a></li>
+            <li><a href="contact-us.html" data-i18n="nav.contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="foot.svc">Our Services</h4>
+          <ul>
+            <li><a href="about-us.html">Old Age Home</a></li>
+            <li><a href="about-us.html">GauShala</a></li>
+            <li><a href="about-us.html">Hospital Food Service</a></li>
+            <li><a href="about-us.html">Street Food Service</a></li>
+            <li><a href="about-us.html">Student Education Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="foot.contact">Contact Us</h4>
+          <p style="margin-bottom:8px; line-height:1.6;">
+            36/4, Saurashtranagar Society, 3, Vijayragav Road, Opposite AksharMahilaCharan Technical Institute, Nr. Jain Museum, Ahmedabad - 380013
+          </p>
+          <p style="margin-top:8px;">
+            &#9742; +91 99040 50044<br>
+            &#9993; info@shreevasukicharitabletrust.org
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright &copy; 2026. All Rights Reserved.</span>
+        <span>Designed by TechnoMetters India</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       JOIN MEMBERSHIP MODAL
+       ========================================================= -->
+  <div class="modal-overlay" id="joinModal">
+    <div class="modal-card">
+      <button type="button" class="modal-close" id="modalCloseBtn">&times;</button>
+      <div class="modal-header">
+        <h3>Join Vatsalya Club</h3>
+        <p>Fill in your details to register your membership in Vatsalya Club.</p>
+      </div>
+      <form id="joinForm">
+        <div class="form-group">
+          <label for="memberName">Full Name *</label>
+          <input type="text" id="memberName" required placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label for="memberPhone">Mobile Number *</label>
+          <input type="tel" id="memberPhone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label for="memberCity">City / Location *</label>
+          <input type="text" id="memberCity" required placeholder="e.g. Ahmedabad">
+        </div>
+        <div class="form-group">
+          <label for="memberMsg">Message / Inquiry (Optional)</label>
+          <textarea id="memberMsg" rows="3" placeholder="Tell us if you have any questions"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:10px;">Submit Membership Request</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+  <script>
+    // Dictionary for i18n
+    const DICT = {
+      en: {
+        'top.phone': '+91 99040 50044',
+        'top.loc': 'Ahmedabad, Gujarat, India',
+        'top.tag': 'Together for a Better Tomorrow',
+        'nav.home': 'Home',
+        'nav.about': 'About Us',
+        'nav.vatsalya': 'Vatsalya Group',
+        'nav.club': 'Vatsalya Club',
+        'nav.gallery': 'Gallery',
+        'nav.trustee': 'Trustee',
+        'nav.contact': 'Contact',
+        'hero.badge': 'Community Membership',
+        'hero.title': 'Vatsalya Club',
+        'hero.sub': 'Connect. Participate. Belong.',
+        'hero.desc': 'Vatsalya Club is a vibrant membership-based community that brings people together through meaningful connections, engaging activities, social gatherings and shared experiences.',
+        'hero.joinBtn': 'Become a Member →',
+        'hero.waBtn': 'Connect via WhatsApp',
+        'pill1.t': 'People', 'pill1.s': 'Community',
+        'pill2.t': 'Events', 'pill2.s': 'Activities',
+        'pill3.t': 'Stronger', 'pill3.s': 'Belonging',
+        'sec2.title': 'More Than a Club. A Community.',
+        'sec2.sub': 'Vatsalya Club is built on shared values, friendships and a spirit of togetherness. It\'s a place to meet new people, take part in meaningful activities and create lasting memories.',
+        'sec2.c1t': 'Connect', 'sec2.c1p': 'Meet new people and build lasting relationships within a like-minded community.',
+        'sec2.c2t': 'Participate', 'sec2.c2p': 'Be part of gatherings, cultural programs, activities and special events.',
+        'sec2.c3t': 'Experience', 'sec2.c3p': 'Enjoy memorable activities and unique experiences throughout the year.',
+        'sec2.c4t': 'Grow Together', 'sec2.c4p': 'Share ideas, knowledge and experiences, and discover new opportunities.',
+        'sec3.title': 'How Vatsalya Club Works',
+        'sec3.sub': 'A simple membership journey to help you connect, participate and make the most of your club experience.',
+        'sec3.s1t': 'Become a Member', 'sec3.s1p': 'Complete the registration process to join Vatsalya Club.',
+        'sec3.s2t': 'Join the Community', 'sec3.s2p': 'Get access to our vibrant and welcoming members\' community.',
+        'sec3.s3t': 'Participate in Club Activities', 'sec3.s3p': 'Take part in various events, programs and gatherings.',
+        'sec3.s4t': 'Build Meaningful Connections', 'sec3.s4p': 'Meet like-minded people and create lasting relationships.',
+        'sec3.s5t': 'Stay Active', 'sec3.s5p': 'Keep participating and stay informed about upcoming opportunities.',
+        'sec4.title': 'Club Activities', 'sec4.sub': 'A wide range of activities for all age groups and interests.',
+        'sec4.a1t': 'Social Gatherings', 'sec4.a1p': 'Get together, meet and build friendships.',
+        'sec4.a2t': 'Cultural Programs', 'sec4.a2p': 'Celebrate our culture and heritage.',
+        'sec4.a3t': 'Family Activities', 'sec4.a3p': 'Fun activities for members and their families.',
+        'sec4.a4t': 'Networking Meets', 'sec4.a4p': 'Connect with professionals and like-minded members.',
+        'sec4.a5t': 'Educational Sessions', 'sec4.a5p': 'Learn, share and grow together.',
+        'sec4.a6t': 'Recreational Activities', 'sec4.a6p': 'Enjoy leisure and wellness activities.',
+        'sec4.a7t': 'Celebrations & Special Events', 'sec4.a7p': 'Mark special occasions together.',
+        'sec4.a8t': 'Community Engagement Programs', 'sec4.a8p': 'Give back to society through meaningful initiatives.',
+        'sec5.title': 'The Vatsalya Club Experience', 'sec5.sub': 'A journey of meaningful connections, shared moments and lifelong friendships.',
+        'sec5.j1t': 'Meet', 'sec5.j1p': 'Meet new people',
+        'sec5.j2t': 'Connect', 'sec5.j2p': 'Build relationships',
+        'sec5.j3t': 'Participate', 'sec5.j3p': 'Join activities & events',
+        'sec5.j4t': 'Celebrate', 'sec5.j4p': 'Create joyful memories',
+        'sec5.j5t': 'Grow Together', 'sec5.j5p': 'A stronger, happier community',
+        'sec6.title': 'Member Participation', 'sec6.sub': 'Our club thrives through the active involvement of our members. Here\'s how you can contribute:',
+        'sec6.i1': 'Participate in Club programs and gatherings',
+        'sec6.i2': 'Maintain respectful and positive interaction',
+        'sec6.i3': 'Introduce like-minded new members',
+        'sec6.i4': 'Share ideas for future Club activities',
+        'sec6.i5': 'Keep membership details updated',
+        'sec6.i6': 'Support smooth coordination of Club programs',
+        'sec6.i7': 'Follow the Club\'s membership guidelines',
+        'sec7.title': 'Why Join Vatsalya Club?', 'sec7.sub': 'Be part of a welcoming community and enjoy a host of benefits.',
+        'sec7.w1t': 'Strong Community Network', 'sec7.w1p': 'Build lasting friendships and meaningful connections.',
+        'sec7.w2t': 'Exclusive Member Activities', 'sec7.w2p': 'Access to special events and member-only programs.',
+        'sec7.w3t': 'Family & Social Engagement', 'sec7.w3p': 'Activities for all age groups and family members.',
+        'sec7.w4t': 'Networking Opportunities', 'sec7.w4p': 'Meet professionals and expand your network.',
+        'sec7.w5t': 'Learning & Interaction', 'sec7.w5p': 'Gain new knowledge through sessions and group interactions.',
+        'sec7.w6t': 'Memorable Experiences', 'sec7.w6p': 'Create beautiful memories with a like-minded community.',
+        'sec8.title': 'Our Club Pillars', 'sec8.sub': 'The core values that make Vatsalya Club special.',
+        'sec8.p1t': 'Connection', 'sec8.p1p': 'Bringing people closer',
+        'sec8.p2t': 'Community', 'sec8.p2p': 'A supportive family',
+        'sec8.p3t': 'Participation', 'sec8.p3p': 'Active involvement',
+        'sec8.p4t': 'Experience', 'sec8.p4p': 'Meaningful moments',
+        'sec8.p5t': 'Growth', 'sec8.p5p': 'Together towards a brighter future',
+        'vm.vTitle': 'Our Vision',
+        'vm.vDesc': 'Create a respected and vibrant membership community where people connect, participate and build meaningful relationships through shared experiences.',
+        'vm.mTitle': 'Our Mission',
+        'vm.m1': 'Community Networking', 'vm.m2': 'Knowledge Sharing',
+        'vm.m3': 'Social Interaction', 'vm.m4': 'Recreation & Events',
+        'vm.m5': 'Family Engagement', 'vm.m6': 'Member Experiences',
+        'vm.m7': 'Cultural Activities', 'vm.m8': 'Community Development',
+        'sec9.title': 'Become Part of Vatsalya Club',
+        'sec9.sub': 'One Club. Many Connections. Countless Experiences.',
+        'sec9.desc': 'Join Vatsalya Club and be part of a growing community that celebrates relationships, culture, learning and togetherness. Discover new friends, exciting activities and memorable experiences throughout the year.',
+        'sec9.disc': 'Benefits and participation opportunities may vary according to programs and guidelines.',
+        'sec10.title': 'Membership Guidelines',
+        'sec10.g1': 'Vatsalya Club is a membership-based community.',
+        'sec10.g2': 'Membership is subject to registration requirements and applicable fee.',
+        'sec10.g3': 'Respectful behaviour is expected from all members during Club activities and events.',
+        'sec10.g4': 'Events may have separate registration, capacity, eligibility or charges.',
+        'sec10.g5': 'The Club may modify activities and benefits according to operational requirements.',
+        'sec10.promise': 'A positive, respectful and inclusive community for everyone.',
+        'sec11.title': 'Join Vatsalya Club',
+        'sec11.sub': 'Your Community. Your Connections. Your Club.',
+        'sec11.desc': 'Complete your membership registration today or get in touch with us for membership plans, benefits and upcoming activities.',
+        'foot.about': 'Connecting People. Creating Experiences. Growing Together. A membership community built around connection, participation and shared experiences.',
+        'foot.quick': 'Quick Links', 'foot.svc': 'Our Services', 'foot.contact': 'Contact Us'
+      },
+      gu: {
+        'top.phone': '+91 99040 50044',
+        'top.loc': 'અમદાવાદ, ગુજરાત, ભારત',
+        'top.tag': 'સાથે મળીને વધુ સારું આગામી',
+        'nav.home': 'હોમ',
+        'nav.about': 'અમારા વિશે',
+        'nav.vatsalya': 'વાત્સલ્ય ગ્રુપ',
+        'nav.club': 'વાત્સલ્ય ક્લબ',
+        'nav.gallery': 'ગેલેરી',
+        'nav.trustee': 'ટ્રસ્ટી',
+        'nav.contact': 'સંપર્ક',
+        'hero.badge': 'સમુદાય સભ્યપદ',
+        'hero.title': 'વાત્સલ્ય ક્લબ',
+        'hero.sub': 'જોડાઓ. ભાગ લો. અપનાવો.',
+        'hero.desc': 'વાત્સલ્ય ક્લબ એ એક જીવંત સમુદાય આધારિત સભ્યપદ છે જે લોકોને સાચા સંબંધો, પ્રવૃત્તિઓ અને સામાજિક કાર્યક્રમો દ્વારા એકસાથે લાવે છે.',
+        'hero.joinBtn': 'સભ્ય બનો →',
+        'hero.waBtn': 'WhatsApp પર સંપર્ક કરો',
+        'pill1.t': 'લોકો', 'pill1.s': 'સમુદાય',
+        'pill2.t': 'કાર્યક્રમો', 'pill2.s': 'પ્રવૃત્તિઓ',
+        'pill3.t': 'મજબૂત', 'pill3.s': 'આપોહવા',
+        'sec2.title': 'ક્લબ કરતાં વધુ. એક સમુદાય.',
+        'sec2.sub': 'વાત્સલ્ય ક્લબ સમાન મૂલ્યો અને એકતા પર આધારિત છે. નવા લોકોને મળવા અને અદ્ભુત ક્ષણો સર્જવા માટેનું સ્થળ.',
+        'sec2.c1t': 'જોડાઓ', 'sec2.c1p': 'નવા લોકોને મળો અને મજબૂત સંબંધો બનાવો.',
+        'sec2.c2t': 'ભાગ લો', 'sec2.c2p': 'સાંસ્કૃતિક અને સામાજિક કાર્યક્રમોમાં ભાગ લો.',
+        'sec2.c3t': 'અનુભવ', 'sec2.c3p': 'વર્ષ દરમિયાન અદ્ભુત અનુભવો મેળવો.',
+        'sec2.c4t': 'સાથે વિકાસ કરો', 'sec2.c4p': 'વિચારો અને અનુભવો શેર કરો.',
+        'sec3.title': 'વાત્સલ્ય ક્લબ કેવી રીતે કાર્ય કરે છે',
+        'sec3.sub': 'સરળ સભ્યપદ પ્રક્રિયા જે તમને ક્લબ અનુભવમાં મદદ કરે છે.',
+        'sec3.s1t': 'સભ્ય બનો', 'sec3.s1p': 'વાત્સલ્ય ક્લબમાં જોડાવા માટે નોંધણી પૂર્ણ કરો.',
+        'sec3.s2t': 'સમુદાયમાં જોડાઓ', 'sec3.s2p': 'અમારા સભ્યોના સમુદાયમાં જોડાઓ.',
+        'sec3.s3t': 'પ્રવૃત્તિઓમાં ભાગ લો', 'sec3.s3p': 'વિવિધ કાર્યક્રમો અને સભાઓમાં ભાગ લો.',
+        'sec3.s4t': 'સંબંધો બનાવો', 'sec3.s4p': 'સમાન વિચારસરણી વાળા લોકોને મળો.',
+        'sec3.s5t': 'સક્રિય રહો', 'sec3.s5p': 'આવનારા કાર્યક્રમો વિશે માહિતગાર રહો.',
+        'sec4.title': 'ક્લબ પ્રવૃત્તિઓ', 'sec4.sub': 'તમામ વય જૂથો માટે પ્રવૃત્તિઓ.',
+        'sec4.a1t': 'સામાજિક મેળાવડા', 'sec4.a1p': 'એકસાથે મળો અને મિત્રતા બનાવો.',
+        'sec4.a2t': 'સાંસ્કૃતિક કાર્યક્રમો', 'sec4.a2p': 'સંસ્કૃતિની ઉજવણી કરો.',
+        'sec4.a3t': 'પારિવારિક પ્રવૃત્તિઓ', 'sec4.a3p': 'પરિવાર માટે મનોરંજક પ્રવૃત્તિઓ.',
+        'sec4.a4t': 'નેટવર્કિંગ સભાઓ', 'sec4.a4p': 'વ્યવસાયિકો સાથે જોડાઓ.',
+        'sec4.a5t': 'શિક્ષણ સત્રો', 'sec4.a5p': 'શીખો અને આગળ વધો.',
+        'sec4.a6t': 'મનોરંજક પ્રવૃત્તિઓ', 'sec4.a6p': 'આરોગ્ય અને મનોરંજન પ્રવૃત્તિઓ.',
+        'sec4.a7t': 'ઉજવણીઓ', 'sec4.a7p': 'વિશેષ પ્રસંગો ઉજવો.',
+        'sec4.a8t': 'સમુદાય સેવા', 'sec4.a8p': 'સમાજને મદદ કરો.',
+        'sec5.title': 'વાત્સલ્ય ક્લબ અનુભવ', 'sec5.sub': 'સાચા સંબંધો અને યાદગાર ક્ષણોનો પ્રવાસ.',
+        'sec5.j1t': 'મળો', 'sec5.j1p': 'નવા લોકોને મળો',
+        'sec5.j2t': 'જોડાઓ', 'sec5.j2p': 'સંબંધો બનાવો',
+        'sec5.j3t': 'ભાગ લો', 'sec5.j3p': 'કાર્યક્રમોમાં ભાગ લો',
+        'sec5.j4t': 'ઉજવો', 'sec5.j4p': 'યાદો બનાવો',
+        'sec5.j5t': 'સાથે વધો', 'sec5.j5p': 'વધુ મજબૂત સમુદાય',
+        'sec6.title': 'સભ્યોની ભાગીદારી', 'sec6.sub': 'અમારો ક્લબ સભ્યોના સહયોગથી ચાલે છે:',
+        'sec6.i1': 'ક્લબના તમામ કાર્યક્રમોમાં ભાગ લો',
+        'sec6.i2': 'સાદર અને સકારાત્મક વ્યવહાર જાળવો',
+        'sec6.i3': 'નવા સભ્યોને આમંત્રિત કરો',
+        'sec6.i4': 'નવા વિચારો શેર કરો',
+        'sec6.i5': 'વિગતો અપડેટ રાખો',
+        'sec6.i6': 'કાર્યક્રમ આયોજનમાં સહયોગ આપો',
+        'sec6.i7': 'ક્લબના નિયમોનું પાલન કરો',
+        'sec7.title': 'શા માટે વાત્સલ્ય ક્લબમાં જોડાવું?', 'sec7.sub': 'સમુદાયના લાભોનો આનંદ માણો.',
+        'sec7.w1t': 'મજબૂત સમુદાય નેટવર્ક', 'sec7.w1p': 'સાચા મિત્રો અને સંબંધો બનાવો.',
+        'sec7.w2t': 'ખાસ સભ્ય પ્રવૃત્તિઓ', 'sec7.w2p': 'ખાસ કાર્યક્રમોની એક્સેસ.',
+        'sec7.w3t': 'પારિવારિક જોડાણ', 'sec7.w3p': 'દરેક ઉંમર માટે પ્રવૃત્તિઓ.',
+        'sec7.w4t': 'નેટવર્કિંગ તકો', 'sec7.w4p': 'તમારા નેટવર્કનો વિસ્તાર કરો.',
+        'sec7.w5t': 'શિક્ષણ અને સંપર્ક', 'sec7.w5p': 'નવું જ્ઞાન મેળવો.',
+        'sec7.w6t': 'યાદગાર અનુભવો', 'sec7.w6p': 'સુંદર યાદો બનાવો.',
+        'sec8.title': 'અમારા સ્તંભો', 'sec8.sub': 'વાત્સલ્ય ક્લબના મુખ્ય મૂલ્યો.',
+        'sec8.p1t': 'સંબંધ', 'sec8.p1p': 'લોકોને નજીક લાવવા',
+        'sec8.p2t': 'સમુદાય', 'sec8.p2p': 'એક મદદગાર પરિવાર',
+        'sec8.p3t': 'ભાગીદારી', 'sec8.p3p': 'સક્રિય ભાગીદારી',
+        'sec8.p4t': 'અનુભવ', 'sec8.p4p': 'અર્થપૂર્ણ ક્ષણો',
+        'sec8.p5t': 'વિકાસ', 'sec8.p5p': 'ઉજ્જવળ ભવિષ્ય તરફ',
+        'vm.vTitle': 'અમારું વિઝન',
+        'vm.vDesc': 'એક એવો આદરણીય અને જીવંત સમુદાય બનાવવો જ્યાં લોકો સાચા સંબંધો બાંધે.',
+        'vm.mTitle': 'અમારું મિશન',
+        'vm.m1': 'સમુદાય નેટવર્કિંગ', 'vm.m2': 'જ્ઞાન વહેંચણી',
+        'vm.m3': 'સામાજિક સંપર્ક', 'vm.m4': 'મનોરંજન અને કાર્યક્રમો',
+        'vm.m5': 'પારિવારિક જોડાણ', 'vm.m6': 'સભ્ય અનુભવો',
+        'vm.m7': 'સાંસ્કૃતિક પ્રવૃત્તિઓ', 'vm.m8': 'સમુદાય વિકાસ',
+        'sec9.title': 'વાત્સલ્ય ક્લબનો હિસ્સો બનો',
+        'sec9.sub': 'એક ક્લબ. અનેક સંબંધો. અગણિત અનુભવો.',
+        'sec9.desc': 'વાત્સલ્ય ક્લબમાં જોડાઓ અને નવા મિત્રો અને યાદગાર ક્ષણો મેળવો.',
+        'sec9.disc': 'લાભો નિયમો અને શરતો મુજબ રહેશે.',
+        'sec10.title': 'સભ્યપદ માર્ગદર્શિકા',
+        'sec10.g1': 'વાત્સલ્ય ક્લબ સભ્યપદ આધારિત સમુદાય છે.',
+        'sec10.g2': 'સભ્યપદ નોંધણી અને ફી ને આધીન છે.',
+        'sec10.g3': 'બધા સભ્યો પાસેથી આદરણીય વ્યવહારની અપેક્ષા છે.',
+        'sec10.g4': 'વિશેષ કાર્યક્રમો માટે અલગ નોંધણી થઈ શકે છે.',
+        'sec10.g5': 'ક્લબ જરૂરિયાત મુજબ ફેરફાર કરી શકે છે.',
+        'sec10.promise': 'દરેક માટે એક સકારાત્મક અને આદરણીય સમુદાય.',
+        'sec11.title': 'વાત્સલ્ય ક્લબમાં જોડાઓ',
+        'sec11.sub': 'તમારો સમુદાય. તમારા સંબંધો. તમારો ક્લબ.',
+        'sec11.desc': 'આજે જ સભ્યપદ નોંધણી પૂર્ણ કરો અથવા વધુ માહિતી માટે અમારો સંપર્ક કરો.',
+        'foot.about': 'લોકોને જોડવા. અનુભવો બનાવવા. સાથે વધવું.',
+        'foot.quick': 'ઝડપી લિંક્સ', 'foot.svc': 'અમારી સેવાઓ', 'foot.contact': 'સંપર્ક કરો'
+      }
+    };
+
+    let currentLang = localStorage.getItem('svct-lang') || 'en';
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('svct-lang', lang);
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (DICT[lang] && DICT[lang][key]) {
+          el.textContent = DICT[lang][key];
+        }
+      });
+
+      document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
+    });
+
+    // Initial Language setup
+    applyLanguage(currentLang);
+
+    // Header Scroll Shadow
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('menuBackdrop');
+    const closeBtn = document.getElementById('mobileMenuCloseBtn');
+
+    function toggleMenu(open) {
+      mobileMenu.classList.toggle('open', open);
+      backdrop.classList.toggle('show', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => toggleMenu(true));
+    closeBtn.addEventListener('click', () => toggleMenu(false));
+    backdrop.addEventListener('click', () => toggleMenu(false));
+
+    // Join Modal Logic
+    const joinModal = document.getElementById('joinModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+    document.querySelectorAll('.open-join-modal').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        joinModal.classList.add('open');
+      });
+    });
+
+    modalCloseBtn.addEventListener('click', () => joinModal.classList.remove('open'));
+    joinModal.addEventListener('click', (e) => {
+      if (e.target === joinModal) joinModal.classList.remove('open');
+    });
+
+    document.getElementById('joinForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('memberName').value;
+      const phone = document.getElementById('memberPhone').value;
+      const city = document.getElementById('memberCity').value;
+      const msg = document.getElementById('memberMsg').value;
+
+      const whatsappText = `Hello, I would like to join Vatsalya Club!\n\nName: ${name}\nPhone: ${phone}\nCity: ${city}\nMessage: ${msg}`;
+      window.open(`https://wa.me/919904050044?text=${encodeURIComponent(whatsappText)}`, '_blank');
+      joinModal.classList.remove('open');
+    });
+  </script>
+</body>
+</html>
